@@ -526,28 +526,120 @@ PROJETOS = [
         "arquivo": "eventa-pro.html",
         "nome": "Eventa Pro",
         "etiqueta": "eventos",
-        "resumo": "Plataforma de eventos esportivos: inscrição de atletas, pagamento, emissão de "
-                  "ingresso e painel do organizador.",
-        "papel": "Arquitetura e desenvolvimento full stack",
-        "periodo": "2026 — piloto",
-        "situacao": "Em piloto",
-        "stack": ["NestJS 11", "Prisma 7", "PostgreSQL 16", "React", "TailwindCSS", "TypeScript"],
-        "problema": "Organizador de corrida controla inscrição por formulário de internet e recebe "
-                    "por Pix na mão. <strong>Sem emissão de ingresso, sem controle de lote e sem "
-                    "saber quem realmente pagou</strong> até conferir o extrato linha a linha.",
-        "solucao": [
-            "<strong>Inscrição de atletas</strong> com dados de prova e categoria",
-            "Pagamento com <strong>taxa por inscrição</strong> para o organizador",
-            "<strong>Emissão de ingresso</strong> e validação",
-            "Painel do organizador com acompanhamento em tempo real",
+        "resumo": "Plataforma de corridas de rua com dois lados: o organizador monta o evento, as "
+                  "modalidades, os lotes de preço e os cupons; o corredor se inscreve, paga por "
+                  "PIX ou cartão, recebe ingresso com QR code e depois baixa resultado e "
+                  "certificado. A plataforma retém a taxa e controla o repasse.",
+        "papel": "Desenvolvimento full stack e arquitetura",
+        "periodo": "2026 — em produção",
+        "situacao": "Ativo",
+        "stack": ["TypeScript", "React 19", "NestJS 11", "Prisma 7", "PostgreSQL",
+                  "Ant Design", "Tailwind", "TanStack Query", "AbacatePay", "Docker"],
+        "numeros": [
+            ("47 mil", "linhas de código"),
+            ("143", "endpoints na API"),
+            ("19", "tabelas no banco"),
+            ("19", "migrations"),
+            ("71", "telas"),
+            ("18", "módulos"),
         ],
-        "desafio": "É a primeira operação com dinheiro de terceiro passando pela plataforma. "
-                   "Cobrança, conciliação e emissão precisam funcionar na primeira corrida — "
-                   "porque não existe segunda chance com o organizador que confiou.",
+        "problema": "Organizador de corrida controla inscrição por formulário e recebe por Pix na "
+                    "mão — sem ingresso, sem controle de vaga, sem saber quanto sobrou depois da "
+                    "taxa. E na largada, alguém confere nome em papel impresso. O corredor, do "
+                    "outro lado, não tem onde ver <strong>se a inscrição valeu</strong>.",
+        "solucao": [
+            "<strong>Lotes de preço por data</strong> dentro de cada modalidade, com vaga "
+            "controlada e cupom de desconto",
+            "<strong>Pagamento por PIX ou cartão</strong>, com webhook do gateway e reembolso",
+            "<strong>Ingresso digital com QR code</strong> — check-in e retirada de kit na hora "
+            "da prova",
+            "<strong>Resultado e certificado em PDF</strong>, com verificação pública por número",
+            "<strong>Equipe por evento</strong>: dá acesso só ao check-in sem abrir o financeiro",
+            "<strong>Repasse ao organizador</strong> com a taxa da plataforma congelada no "
+            "momento do pagamento",
+        ],
+        "modulos_intro": "Dezoito módulos, da criação do evento ao certificado do corredor.",
+        "modulos": [
+            ("Organizador", [
+                "Evento com rascunho, publicação e arquivo",
+                "Modalidades com vaga e faixa etária",
+                "Lotes de preço por janela de data",
+                "Cupons percentuais ou em valor",
+                "Campos personalizados de formulário",
+                "Analytics e financeiro do evento",
+            ]),
+            ("Corredor", [
+                "Catálogo e página pública do evento",
+                "Inscrição com reserva temporária",
+                "Checkout por PIX ou cartão",
+                "Ingresso com QR code",
+                "Resultados da prova",
+                "Certificado em PDF",
+            ]),
+            ("Dia da prova", [
+                "Check-in por leitura de QR",
+                "Retirada de kit",
+                "Estatísticas de comparecimento",
+                "Papéis de equipe por evento",
+                "Importação de resultados em lote",
+            ]),
+            ("Plataforma", [
+                "Painel administrativo",
+                "Moderação de eventos",
+                "Repasses aos organizadores",
+                "Suporte com SLA",
+                "LGPD: exportar e excluir conta",
+                "Auditoria e logs",
+            ]),
+        ],
+        "arquitetura": [
+            "<strong>Monorepo</strong> com API NestJS organizada por módulo de funcionalidade e "
+            "front React separado por domínio — público, participante, organizador e admin",
+            "DTOs validados com <strong>Zod</strong>, e guards globais de autenticação, papel e "
+            "posse do evento",
+            "<strong>Interfaces de provider</strong> para e-mail e armazenamento: dá para trocar "
+            "SMTP por servidor próprio, ou Chevereto por MinIO, sem tocar no resto",
+            "Cliente HTTP do frontend <strong>gerado do OpenAPI</strong> publicado pela API",
+            "Webhook do gateway com <strong>deduplicação por evento</strong> — o mesmo aviso "
+            "chegando duas vezes não cobra duas vezes",
+            "Dinheiro em <strong>centavos inteiros</strong> e taxa em pontos-base, nunca decimal",
+            "Jobs recorrentes (expirar reserva, reconciliar pagamento, limpar log) rodando dentro "
+            "do próprio processo, sem fila externa",
+        ],
+        "integracoes": [
+            "AbacatePay (PIX e cartão)", "Google OAuth", "MinIO", "Chevereto",
+            "AWS S3", "Nodemailer / Stalwart", "PDFKit", "Docker",
+        ],
+        "desafio": [
+            ("A última vaga, duas pessoas ao mesmo tempo",
+             "Duas inscrições simultâneas na última vaga de uma modalidade não podem ambas passar. "
+             "A criação roda numa <strong>transação que só incrementa o contador se ainda houver "
+             "vaga naquele instante</strong> — se a condição falha, a operação inteira é desfeita. "
+             "Nunca se vende mais do que o limite, mesmo com pedidos concorrentes. O mesmo "
+             "mecanismo protege o limite de uso de cada cupom."),
+            ("O carrinho abandonado que prende a vaga",
+             "A inscrição segura a vaga por 15 minutos esperando o pagamento. Se o corredor "
+             "desiste, aquela vaga não pode ficar presa para sempre. Uma rotina varre as reservas "
+             "vencidas, cancela cada uma <strong>sem risco de processar a mesma duas vezes</strong> "
+             "e devolve a vaga ao contador da modalidade e do lote, tudo dentro de uma transação."),
+            ("Pagou e não recebeu o ingresso",
+             "Entre o gateway confirmar o pagamento e o sistema emitir o ingresso existe uma "
+             "janela onde tudo pode falhar. Uma rotina de <strong>reconciliação</strong> procura "
+             "pagamentos confirmados que ficaram sem ingresso e refaz a emissão de forma "
+             "idempotente. Somado à deduplicação do webhook, o resultado é que o corredor recebe "
+             "o ingresso uma vez — e sempre."),
+            ("Todo o dinheiro cai numa conta só",
+             "O gateway não divide o pagamento entre plataforma e organizador, então o controle "
+             "do quanto é devido a quem é responsabilidade do sistema. A taxa é calculada em "
+             "<strong>pontos-base</strong>, arredondada para não perder centavo de forma "
+             "sistemática, limitada a nunca passar do valor cobrado — e "
+             "<strong>congelada no momento do pagamento</strong>, para que mudar a taxa amanhã "
+             "não reescreva o histórico financeiro de ontem."),
+        ],
         "prints": [
-            "Página de inscrição",
-            "Checkout",
-            "Painel do organizador",
+            "Página pública do evento",
+            "Checkout e pagamento por PIX",
+            "Ingresso com QR code",
         ],
     },
     {

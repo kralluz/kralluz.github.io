@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eventa Pro — Carlos Henrique</title>
-<meta name="description" content="Plataforma de eventos esportivos: inscrição de atletas, pagamento, emissão de ingresso e painel do organizador.">
+<meta name="description" content="Plataforma de corridas de rua com dois lados: o organizador monta o evento, as modalidades, os lotes de preço e os cupons; o corredor se inscreve, paga por PIX ou cartão, recebe ingresso com QR code e depois baixa resultado e certificado. A plataforma retém a taxa e controla o repasse.">
 <link rel="icon" href="../assets/perfil.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,13 @@
   <div class="container">
     <span class="etiqueta">eventos</span>
     <h1 class="revelar">Eventa Pro</h1>
-    <p class="projeto-resumo revelar" data-atraso="80">Plataforma de eventos esportivos: inscrição de atletas, pagamento, emissão de ingresso e painel do organizador.</p>
-    <ul class="stack revelar" data-atraso="140"><li>NestJS 11</li><li>Prisma 7</li><li>PostgreSQL 16</li><li>React</li><li>TailwindCSS</li><li>TypeScript</li></ul>
+    <p class="projeto-resumo revelar" data-atraso="80">Plataforma de corridas de rua com dois lados: o organizador monta o evento, as modalidades, os lotes de preço e os cupons; o corredor se inscreve, paga por PIX ou cartão, recebe ingresso com QR code e depois baixa resultado e certificado. A plataforma retém a taxa e controla o repasse.</p>
+    <ul class="stack revelar" data-atraso="140"><li>TypeScript</li><li>React 19</li><li>NestJS 11</li><li>Prisma 7</li><li>PostgreSQL</li><li>Ant Design</li><li>Tailwind</li><li>TanStack Query</li><li>AbacatePay</li><li>Docker</li></ul>
 
     <div class="fatos revelar" data-atraso="200">
-      <div class="fato"><span>Papel</span><strong>Arquitetura e desenvolvimento full stack</strong></div>
-      <div class="fato"><span>Período</span><strong>2026 — piloto</strong></div>
-      <div class="fato"><span>Situação</span><strong>Em piloto</strong></div>
+      <div class="fato"><span>Papel</span><strong>Desenvolvimento full stack e arquitetura</strong></div>
+      <div class="fato"><span>Período</span><strong>2026 — em produção</strong></div>
+      <div class="fato"><span>Situação</span><strong>Ativo</strong></div>
     </div>
   </div>
 </header>
@@ -48,36 +48,118 @@
 <main class="conteudo">
   <div class="container">
 
+    <div class="numeros-projeto revelar">
+        <div class="num-cartao">
+          <strong>47 mil</strong>
+          <span>linhas de código</span>
+        </div>
+        <div class="num-cartao">
+          <strong>143</strong>
+          <span>endpoints na API</span>
+        </div>
+        <div class="num-cartao">
+          <strong>19</strong>
+          <span>tabelas no banco</span>
+        </div>
+        <div class="num-cartao">
+          <strong>19</strong>
+          <span>migrations</span>
+        </div>
+        <div class="num-cartao">
+          <strong>71</strong>
+          <span>telas</span>
+        </div>
+        <div class="num-cartao">
+          <strong>18</strong>
+          <span>módulos</span>
+        </div>
+    </div>
+
+
     <h2 class="revelar">O problema</h2>
     <div class="destaque revelar" data-atraso="60">
-      <p>Organizador de corrida controla inscrição por formulário de internet e recebe por Pix na mão. <strong>Sem emissão de ingresso, sem controle de lote e sem saber quem realmente pagou</strong> até conferir o extrato linha a linha.</p>
+      <p>Organizador de corrida controla inscrição por formulário e recebe por Pix na mão — sem ingresso, sem controle de vaga, sem saber quanto sobrou depois da taxa. E na largada, alguém confere nome em papel impresso. O corredor, do outro lado, não tem onde ver <strong>se a inscrição valeu</strong>.</p>
     </div>
 
     <h2 class="revelar">O que foi construído</h2>
     <ul class="entregas revelar" data-atraso="60">
-      <li><strong>Inscrição de atletas</strong> com dados de prova e categoria</li>
-      <li>Pagamento com <strong>taxa por inscrição</strong> para o organizador</li>
-      <li><strong>Emissão de ingresso</strong> e validação</li>
-      <li>Painel do organizador com acompanhamento em tempo real</li>
+      <li><strong>Lotes de preço por data</strong> dentro de cada modalidade, com vaga controlada e cupom de desconto</li>
+      <li><strong>Pagamento por PIX ou cartão</strong>, com webhook do gateway e reembolso</li>
+      <li><strong>Ingresso digital com QR code</strong> — check-in e retirada de kit na hora da prova</li>
+      <li><strong>Resultado e certificado em PDF</strong>, com verificação pública por número</li>
+      <li><strong>Equipe por evento</strong>: dá acesso só ao check-in sem abrir o financeiro</li>
+      <li><strong>Repasse ao organizador</strong> com a taxa da plataforma congelada no momento do pagamento</li>
     </ul>
 
+    <h2 class="revelar">Módulos</h2>
+    <p class="revelar">Dezoito módulos, da criação do evento ao certificado do corredor.</p>
+    <div class="modulos">
+      <div class="grupo-modulo revelar">
+        <h3>Organizador</h3>
+        <ul><li>Evento com rascunho, publicação e arquivo</li><li>Modalidades com vaga e faixa etária</li><li>Lotes de preço por janela de data</li><li>Cupons percentuais ou em valor</li><li>Campos personalizados de formulário</li><li>Analytics e financeiro do evento</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Corredor</h3>
+        <ul><li>Catálogo e página pública do evento</li><li>Inscrição com reserva temporária</li><li>Checkout por PIX ou cartão</li><li>Ingresso com QR code</li><li>Resultados da prova</li><li>Certificado em PDF</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Dia da prova</h3>
+        <ul><li>Check-in por leitura de QR</li><li>Retirada de kit</li><li>Estatísticas de comparecimento</li><li>Papéis de equipe por evento</li><li>Importação de resultados em lote</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Plataforma</h3>
+        <ul><li>Painel administrativo</li><li>Moderação de eventos</li><li>Repasses aos organizadores</li><li>Suporte com SLA</li><li>LGPD: exportar e excluir conta</li><li>Auditoria e logs</li></ul>
+      </div>
+    </div>
+
+    <h2 class="revelar">Arquitetura</h2>
+    <ul class="entregas revelar">
+      <li><strong>Monorepo</strong> com API NestJS organizada por módulo de funcionalidade e front React separado por domínio — público, participante, organizador e admin</li>
+      <li>DTOs validados com <strong>Zod</strong>, e guards globais de autenticação, papel e posse do evento</li>
+      <li><strong>Interfaces de provider</strong> para e-mail e armazenamento: dá para trocar SMTP por servidor próprio, ou Chevereto por MinIO, sem tocar no resto</li>
+      <li>Cliente HTTP do frontend <strong>gerado do OpenAPI</strong> publicado pela API</li>
+      <li>Webhook do gateway com <strong>deduplicação por evento</strong> — o mesmo aviso chegando duas vezes não cobra duas vezes</li>
+      <li>Dinheiro em <strong>centavos inteiros</strong> e taxa em pontos-base, nunca decimal</li>
+      <li>Jobs recorrentes (expirar reserva, reconciliar pagamento, limpar log) rodando dentro do próprio processo, sem fila externa</li>
+    </ul>
+
+    <h2 class="revelar">Integrações</h2>
+    <p class="revelar">Sistemas externos com que o produto conversa.</p>
+    <ul class="stack revelar"><li>AbacatePay (PIX e cartão)</li><li>Google OAuth</li><li>MinIO</li><li>Chevereto</li><li>AWS S3</li><li>Nodemailer / Stalwart</li><li>PDFKit</li><li>Docker</li></ul>
+
     <h2 class="revelar">Desafios técnicos</h2>
-    <p class="revelar">É a primeira operação com dinheiro de terceiro passando pela plataforma. Cobrança, conciliação e emissão precisam funcionar na primeira corrida — porque não existe segunda chance com o organizador que confiou.</p>
+
+    <div class="desafio revelar">
+      <h3>A última vaga, duas pessoas ao mesmo tempo</h3>
+      <p>Duas inscrições simultâneas na última vaga de uma modalidade não podem ambas passar. A criação roda numa <strong>transação que só incrementa o contador se ainda houver vaga naquele instante</strong> — se a condição falha, a operação inteira é desfeita. Nunca se vende mais do que o limite, mesmo com pedidos concorrentes. O mesmo mecanismo protege o limite de uso de cada cupom.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>O carrinho abandonado que prende a vaga</h3>
+      <p>A inscrição segura a vaga por 15 minutos esperando o pagamento. Se o corredor desiste, aquela vaga não pode ficar presa para sempre. Uma rotina varre as reservas vencidas, cancela cada uma <strong>sem risco de processar a mesma duas vezes</strong> e devolve a vaga ao contador da modalidade e do lote, tudo dentro de uma transação.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Pagou e não recebeu o ingresso</h3>
+      <p>Entre o gateway confirmar o pagamento e o sistema emitir o ingresso existe uma janela onde tudo pode falhar. Uma rotina de <strong>reconciliação</strong> procura pagamentos confirmados que ficaram sem ingresso e refaz a emissão de forma idempotente. Somado à deduplicação do webhook, o resultado é que o corredor recebe o ingresso uma vez — e sempre.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Todo o dinheiro cai numa conta só</h3>
+      <p>O gateway não divide o pagamento entre plataforma e organizador, então o controle do quanto é devido a quem é responsabilidade do sistema. A taxa é calculada em <strong>pontos-base</strong>, arredondada para não perder centavo de forma sistemática, limitada a nunca passar do valor cobrado — e <strong>congelada no momento do pagamento</strong>, para que mudar a taxa amanhã não reescreva o histórico financeiro de ontem.</p>
+    </div>
 
     <h2 class="revelar">Telas</h2>
     <p class="revelar">Prints do sistema em funcionamento.</p>
     <div class="galeria">
       <figure>
-        <div class="vaga-print">adicione aqui:<br>Página de inscrição</div>
-        <figcaption>Página de inscrição</figcaption>
+        <div class="vaga-print">adicione aqui:<br>Página pública do evento</div>
+        <figcaption>Página pública do evento</figcaption>
       </figure>
       <figure>
-        <div class="vaga-print">adicione aqui:<br>Checkout</div>
-        <figcaption>Checkout</figcaption>
+        <div class="vaga-print">adicione aqui:<br>Checkout e pagamento por PIX</div>
+        <figcaption>Checkout e pagamento por PIX</figcaption>
       </figure>
       <figure>
-        <div class="vaga-print">adicione aqui:<br>Painel do organizador</div>
-        <figcaption>Painel do organizador</figcaption>
+        <div class="vaga-print">adicione aqui:<br>Ingresso com QR code</div>
+        <figcaption>Ingresso com QR code</figcaption>
       </figure>
     </div>
 
