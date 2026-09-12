@@ -554,24 +554,119 @@ PROJETOS = [
         "arquivo": "crm-getmoto.html",
         "nome": "CRM GetMoto",
         "etiqueta": "gestão",
-        "resumo": "Gestão completa de oficina de motos: ordens de serviço, estoque, fluxo de caixa "
-                  "e controle de acesso por perfil.",
-        "papel": "Desenvolvimento full stack",
-        "periodo": "2026",
-        "situacao": "Entregue",
-        "stack": ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "JWT"],
-        "problema": "A oficina anotava ordem de serviço em caderno. Não sabia quanto tinha em "
-                    "peças, quanto entrou no mês, nem <strong>qual mecânico atendeu qual moto</strong> "
-                    "quando o cliente voltava reclamando.",
-        "solucao": [
-            "<strong>Ordens de serviço</strong> com status, diagnóstico e profissional responsável",
-            "Cadastro de motos por marca, modelo, placa e ano",
-            "<strong>Estoque</strong> com categorias, preços e movimentações",
-            "<strong>Fluxo de caixa</strong> com receitas, despesas e relatórios",
-            "Acesso por perfil: admin, gerente, mecânico e atendente",
+        "resumo": "Sistema de gestão para oficina de motos em operação no Reino Unido. Cobre o "
+                  "ciclo inteiro — veículo, ordem de serviço, estoque, compras e despesas — e "
+                  "vai até a folha de pagamento, com tudo desaguando num livro-caixa único.",
+        "papel": "Desenvolvimento full stack e arquitetura",
+        "periodo": "2026 — em produção",
+        "situacao": "Ativo",
+        "stack": ["TypeScript", "React 19", "Express 4", "Prisma 6", "PostgreSQL",
+                  "Ant Design", "TanStack Query", "Zustand", "Orval", "Docker"],
+        "numeros": [
+            ("50 mil", "linhas de código"),
+            ("96", "endpoints na API"),
+            ("18", "tabelas no banco"),
+            ("39", "telas"),
+            ("19", "módulos"),
+            ("3", "idiomas"),
         ],
-        "desafio": "Quem ia usar o sistema estava acostumado com caderno. A interface precisava ser "
-                   "mais rápida que escrever à mão — senão o caderno vence.",
+        "problema": "A oficina controlava ordem de serviço, estoque e folha em lugares separados — "
+                    "e nenhum deles conversava com o caixa. Não dava para saber quanto uma OS "
+                    "deixou de margem depois da peça consumida, nem quanto o mês fechou de "
+                    "verdade depois de pagar fornecedor, despesa e funcionário.",
+        "solucao": [
+            "<strong>Ordem de serviço</strong> que soma peça e mão de obra, baixa o estoque e "
+            "lança o caixa na mesma operação",
+            "<strong>Livro-caixa único</strong> que recebe venda, compra, despesa, folha e vale — "
+            "cada lançamento sabe de onde veio",
+            "<strong>Folha de pagamento</strong> com ponto, hora extra, bônus, desconto e vale "
+            "deduzido automaticamente",
+            "<strong>Estorno por lançamento reverso</strong>: cancelar não apaga, cria o "
+            "contrário e mantém os dois lados no histórico",
+            "<strong>Estoque</strong> com movimentação automática, ajuste manual e alerta de "
+            "mínimo",
+            "Interface em <strong>português, inglês e espanhol</strong>, com valores em libra",
+        ],
+        "modulos_intro": "Dezenove módulos, da abertura da OS ao holerite do mecânico.",
+        "modulos": [
+            ("Oficina", [
+                "Veículos e histórico por moto",
+                "Ordens de serviço com desconto",
+                "Catálogo de serviços e categorias",
+                "Produtos e categorias",
+                "Relatório de OS por período",
+                "Busca global",
+            ]),
+            ("Estoque e compras", [
+                "Movimentações automáticas",
+                "Ajuste manual sem tocar no caixa",
+                "Alerta de estoque mínimo",
+                "Ordens de compra a fornecedor",
+                "Relatório de posição",
+            ]),
+            ("Financeiro", [
+                "Livro-caixa central",
+                "Despesas operacionais",
+                "Resumo por categoria",
+                "Dashboard com gráficos",
+                "Relatório em PDF",
+            ]),
+            ("Pessoas", [
+                "Cadastro de funcionários",
+                "Registro de ponto",
+                "Folha de pagamento e holerite",
+                "Adiantamentos e vales",
+                "Usuários e papéis de acesso",
+            ]),
+        ],
+        "arquitetura": [
+            "Backend em camadas <strong>rota → controller → service → Prisma</strong>, com "
+            "validação Zod e tratamento central de erro que distingue erro de domínio, de schema "
+            "e código do Prisma",
+            "Toda operação que toca <strong>mais de uma tabela</strong> — OS mais estoque mais "
+            "caixa, folha mais vale mais ponto — roda dentro de uma transação",
+            "<strong>Soft delete</strong> e trilha de auditoria (quem criou, quem cancelou, por "
+            "quê) nas entidades financeiras",
+            "Estorno por <strong>registro reverso vinculado</strong>, nunca por edição do "
+            "lançamento original",
+            "Frontend com rota protegida por papel, code-splitting por tela, sessão em Zustand e "
+            "dados de servidor em TanStack Query",
+            "Cliente de API <strong>gerado por Orval</strong> a partir do Swagger do backend — os "
+            "tipos do frontend vêm do contrato, não de cópia manual",
+            "Access token em memória do navegador e <strong>refresh em cookie HttpOnly</strong>, "
+            "com fila de requisições concorrentes durante a renovação",
+            "Docker multi-stage com usuário não-root, imagem no GHCR e frontend na Vercel com CSP "
+            "e HSTS",
+        ],
+        "integracoes": [
+            "PostgreSQL", "Swagger / OpenAPI", "Orval", "Docker",
+            "GHCR", "Vercel", "Winston", "pdfmake",
+        ],
+        "desafio": [
+            ("Folha de pagamento não aceita centavo errado",
+             "Hora trabalhada vezes valor-hora precisa dar um número exato, e ponto flutuante "
+             "acumula erro justamente aí. Todo valor monetário é <strong>pence em BigInt</strong>, "
+             "do schema até o service: as horas viram base inteira antes de multiplicar pela taxa, "
+             "e a divisão só acontece no fim. Nenhum cálculo intermediário passa por "
+             "<code>float</code>."),
+            ("Cancelar sem apagar",
+             "Cancelar uma OS, uma compra ou uma folha não pode apagar o lançamento — isso "
+             "quebraria o histórico do caixa — mas também não pode deixar o efeito financeiro de "
+             "pé. A saída foi o <strong>lançamento reverso</strong>: um registro de direção "
+             "invertida, marcado como estorno e ligado ao original, com estoque e saldo devolvidos "
+             "por operação atômica. O relatório continua mostrando os dois lados."),
+            ("Quatro escritas que precisam valer ou falhar juntas",
+             "Abrir uma ordem de serviço valida o desconto, debita o estoque de cada peça, "
+             "registra o movimento e lança o caixa. Se a terceira peça não tiver saldo, as duas "
+             "primeiras não podem ter saído. Tudo roda numa <strong>transação única</strong>, com "
+             "decremento atômico de estoque para que duas OS simultâneas não vendam a mesma peça."),
+            ("Dois períodos de folha que se encostam",
+             "Dois intervalos de pagamento podem se sobrepor de quatro jeitos — começar dentro do "
+             "outro, terminar dentro, conter o outro inteiro ou ser idênticos. A checagem é feita "
+             "por três condições equivalentes à <strong>intersecção de intervalos</strong>, "
+             "escritas nessa forma porque o Prisma as traduz melhor que a fórmula direta; o "
+             "porquê está comentado no código, ao lado."),
+        ],
         "prints": [
             ("gm-financeiro.png", "Dashboard financeiro — saldo, entradas, saídas e fluxo de caixa"),
             ("gm-ordens.png", "Ordens de serviço com veículo, descrição e profissional"),

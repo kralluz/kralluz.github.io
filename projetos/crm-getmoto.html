@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CRM GetMoto — Carlos Henrique</title>
-<meta name="description" content="Gestão completa de oficina de motos: ordens de serviço, estoque, fluxo de caixa e controle de acesso por perfil.">
+<meta name="description" content="Sistema de gestão para oficina de motos em operação no Reino Unido. Cobre o ciclo inteiro — veículo, ordem de serviço, estoque, compras e despesas — e vai até a folha de pagamento, com tudo desaguando num livro-caixa único.">
 <link rel="icon" href="../assets/perfil.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,13 @@
   <div class="container">
     <span class="etiqueta">gestão</span>
     <h1 class="revelar">CRM GetMoto</h1>
-    <p class="projeto-resumo revelar" data-atraso="80">Gestão completa de oficina de motos: ordens de serviço, estoque, fluxo de caixa e controle de acesso por perfil.</p>
-    <ul class="stack revelar" data-atraso="140"><li>React</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>JWT</li></ul>
+    <p class="projeto-resumo revelar" data-atraso="80">Sistema de gestão para oficina de motos em operação no Reino Unido. Cobre o ciclo inteiro — veículo, ordem de serviço, estoque, compras e despesas — e vai até a folha de pagamento, com tudo desaguando num livro-caixa único.</p>
+    <ul class="stack revelar" data-atraso="140"><li>TypeScript</li><li>React 19</li><li>Express 4</li><li>Prisma 6</li><li>PostgreSQL</li><li>Ant Design</li><li>TanStack Query</li><li>Zustand</li><li>Orval</li><li>Docker</li></ul>
 
     <div class="fatos revelar" data-atraso="200">
-      <div class="fato"><span>Papel</span><strong>Desenvolvimento full stack</strong></div>
-      <div class="fato"><span>Período</span><strong>2026</strong></div>
-      <div class="fato"><span>Situação</span><strong>Entregue</strong></div>
+      <div class="fato"><span>Papel</span><strong>Desenvolvimento full stack e arquitetura</strong></div>
+      <div class="fato"><span>Período</span><strong>2026 — em produção</strong></div>
+      <div class="fato"><span>Situação</span><strong>Ativo</strong></div>
     </div>
   </div>
 </header>
@@ -48,22 +48,104 @@
 <main class="conteudo">
   <div class="container">
 
+    <div class="numeros-projeto revelar">
+        <div class="num-cartao">
+          <strong>50 mil</strong>
+          <span>linhas de código</span>
+        </div>
+        <div class="num-cartao">
+          <strong>96</strong>
+          <span>endpoints na API</span>
+        </div>
+        <div class="num-cartao">
+          <strong>18</strong>
+          <span>tabelas no banco</span>
+        </div>
+        <div class="num-cartao">
+          <strong>39</strong>
+          <span>telas</span>
+        </div>
+        <div class="num-cartao">
+          <strong>19</strong>
+          <span>módulos</span>
+        </div>
+        <div class="num-cartao">
+          <strong>3</strong>
+          <span>idiomas</span>
+        </div>
+    </div>
+
+
     <h2 class="revelar">O problema</h2>
     <div class="destaque revelar" data-atraso="60">
-      <p>A oficina anotava ordem de serviço em caderno. Não sabia quanto tinha em peças, quanto entrou no mês, nem <strong>qual mecânico atendeu qual moto</strong> quando o cliente voltava reclamando.</p>
+      <p>A oficina controlava ordem de serviço, estoque e folha em lugares separados — e nenhum deles conversava com o caixa. Não dava para saber quanto uma OS deixou de margem depois da peça consumida, nem quanto o mês fechou de verdade depois de pagar fornecedor, despesa e funcionário.</p>
     </div>
 
     <h2 class="revelar">O que foi construído</h2>
     <ul class="entregas revelar" data-atraso="60">
-      <li><strong>Ordens de serviço</strong> com status, diagnóstico e profissional responsável</li>
-      <li>Cadastro de motos por marca, modelo, placa e ano</li>
-      <li><strong>Estoque</strong> com categorias, preços e movimentações</li>
-      <li><strong>Fluxo de caixa</strong> com receitas, despesas e relatórios</li>
-      <li>Acesso por perfil: admin, gerente, mecânico e atendente</li>
+      <li><strong>Ordem de serviço</strong> que soma peça e mão de obra, baixa o estoque e lança o caixa na mesma operação</li>
+      <li><strong>Livro-caixa único</strong> que recebe venda, compra, despesa, folha e vale — cada lançamento sabe de onde veio</li>
+      <li><strong>Folha de pagamento</strong> com ponto, hora extra, bônus, desconto e vale deduzido automaticamente</li>
+      <li><strong>Estorno por lançamento reverso</strong>: cancelar não apaga, cria o contrário e mantém os dois lados no histórico</li>
+      <li><strong>Estoque</strong> com movimentação automática, ajuste manual e alerta de mínimo</li>
+      <li>Interface em <strong>português, inglês e espanhol</strong>, com valores em libra</li>
     </ul>
 
+    <h2 class="revelar">Módulos</h2>
+    <p class="revelar">Dezenove módulos, da abertura da OS ao holerite do mecânico.</p>
+    <div class="modulos">
+      <div class="grupo-modulo revelar">
+        <h3>Oficina</h3>
+        <ul><li>Veículos e histórico por moto</li><li>Ordens de serviço com desconto</li><li>Catálogo de serviços e categorias</li><li>Produtos e categorias</li><li>Relatório de OS por período</li><li>Busca global</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Estoque e compras</h3>
+        <ul><li>Movimentações automáticas</li><li>Ajuste manual sem tocar no caixa</li><li>Alerta de estoque mínimo</li><li>Ordens de compra a fornecedor</li><li>Relatório de posição</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Financeiro</h3>
+        <ul><li>Livro-caixa central</li><li>Despesas operacionais</li><li>Resumo por categoria</li><li>Dashboard com gráficos</li><li>Relatório em PDF</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Pessoas</h3>
+        <ul><li>Cadastro de funcionários</li><li>Registro de ponto</li><li>Folha de pagamento e holerite</li><li>Adiantamentos e vales</li><li>Usuários e papéis de acesso</li></ul>
+      </div>
+    </div>
+
+    <h2 class="revelar">Arquitetura</h2>
+    <ul class="entregas revelar">
+      <li>Backend em camadas <strong>rota → controller → service → Prisma</strong>, com validação Zod e tratamento central de erro que distingue erro de domínio, de schema e código do Prisma</li>
+      <li>Toda operação que toca <strong>mais de uma tabela</strong> — OS mais estoque mais caixa, folha mais vale mais ponto — roda dentro de uma transação</li>
+      <li><strong>Soft delete</strong> e trilha de auditoria (quem criou, quem cancelou, por quê) nas entidades financeiras</li>
+      <li>Estorno por <strong>registro reverso vinculado</strong>, nunca por edição do lançamento original</li>
+      <li>Frontend com rota protegida por papel, code-splitting por tela, sessão em Zustand e dados de servidor em TanStack Query</li>
+      <li>Cliente de API <strong>gerado por Orval</strong> a partir do Swagger do backend — os tipos do frontend vêm do contrato, não de cópia manual</li>
+      <li>Access token em memória do navegador e <strong>refresh em cookie HttpOnly</strong>, com fila de requisições concorrentes durante a renovação</li>
+      <li>Docker multi-stage com usuário não-root, imagem no GHCR e frontend na Vercel com CSP e HSTS</li>
+    </ul>
+
+    <h2 class="revelar">Integrações</h2>
+    <p class="revelar">Sistemas externos com que o produto conversa.</p>
+    <ul class="stack revelar"><li>PostgreSQL</li><li>Swagger / OpenAPI</li><li>Orval</li><li>Docker</li><li>GHCR</li><li>Vercel</li><li>Winston</li><li>pdfmake</li></ul>
+
     <h2 class="revelar">Desafios técnicos</h2>
-    <p class="revelar">Quem ia usar o sistema estava acostumado com caderno. A interface precisava ser mais rápida que escrever à mão — senão o caderno vence.</p>
+
+    <div class="desafio revelar">
+      <h3>Folha de pagamento não aceita centavo errado</h3>
+      <p>Hora trabalhada vezes valor-hora precisa dar um número exato, e ponto flutuante acumula erro justamente aí. Todo valor monetário é <strong>pence em BigInt</strong>, do schema até o service: as horas viram base inteira antes de multiplicar pela taxa, e a divisão só acontece no fim. Nenhum cálculo intermediário passa por <code>float</code>.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Cancelar sem apagar</h3>
+      <p>Cancelar uma OS, uma compra ou uma folha não pode apagar o lançamento — isso quebraria o histórico do caixa — mas também não pode deixar o efeito financeiro de pé. A saída foi o <strong>lançamento reverso</strong>: um registro de direção invertida, marcado como estorno e ligado ao original, com estoque e saldo devolvidos por operação atômica. O relatório continua mostrando os dois lados.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Quatro escritas que precisam valer ou falhar juntas</h3>
+      <p>Abrir uma ordem de serviço valida o desconto, debita o estoque de cada peça, registra o movimento e lança o caixa. Se a terceira peça não tiver saldo, as duas primeiras não podem ter saído. Tudo roda numa <strong>transação única</strong>, com decremento atômico de estoque para que duas OS simultâneas não vendam a mesma peça.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Dois períodos de folha que se encostam</h3>
+      <p>Dois intervalos de pagamento podem se sobrepor de quatro jeitos — começar dentro do outro, terminar dentro, conter o outro inteiro ou ser idênticos. A checagem é feita por três condições equivalentes à <strong>intersecção de intervalos</strong>, escritas nessa forma porque o Prisma as traduz melhor que a fórmula direta; o porquê está comentado no código, ao lado.</p>
+    </div>
 
     <h2 class="revelar">Telas</h2>
     <p class="revelar">Prints do sistema em funcionamento.</p>
