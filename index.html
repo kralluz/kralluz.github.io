@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Henrique — Desenvolvedor Full Stack</title>
+<meta name="description" content="Desenvolvedor Full Stack e arquiteto de sistemas. Painéis de saúde pública, plataformas de atendimento ao cidadão e sistemas de gestão em produção.">
+<link rel="icon" href="assets/perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<nav class="nav" id="nav">
+  <div class="container nav-interno">
+    <a class="nav-marca" href="#topo">
+      <img src="assets/perfil.jpg" alt="" width="28" height="28">
+      <span>carlos<em>.</em>klz</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+  <div class="nav-progresso" id="progresso"></div>
+</nav>
+
+<!-- ícones SVG reutilizáveis: definidos uma vez, usados com <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.834 2.81 1.304 3.5.997.11-.776.42-1.305.76-1.605-2.67-.3-5.47-1.335-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12.01 12.01 0 0024 12.5C24 5.87 18.63.5 12 .5z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+  </symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+  </symbol>
+</svg>
+
+
+<!-- ==================== TOPO ==================== -->
+<header class="hero" id="topo">
+  <div class="container hero-grid">
+
+    <div class="hero-texto revelar">
+      <p class="hero-sup">Ceres · Goiás · Brasil</p>
+      <h1>Carlos Henrique</h1>
+      <p class="hero-cargo">Desenvolvedor Full Stack · Arquiteto de sistemas</p>
+      <p class="hero-frase">
+        Do banco ao layout. Transformo ruído em número, e número em decisão.
+      </p>
+
+      <div class="hero-acoes">
+        <a class="btn btn-primario" href="#projetos">
+          Ver projetos
+          <svg class="ico"><use href="#i-seta"/></svg>
+        </a>
+        <a class="btn" href="https://github.com/kralluz" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-github"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/carlosklz/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-linkedin"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-foto revelar" data-atraso="150">
+      <div class="foto-moldura">
+        <img src="assets/perfil.jpg" alt="Carlos Henrique" width="230" height="230">
+      </div>
+      <span class="ponto-status" title="Disponível para projetos"></span>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- ==================== NÚMEROS ==================== -->
+  <section class="faixa-numeros">
+    <div class="container numeros">
+      <div class="numero revelar">
+        <strong data-contar="5416">0</strong>
+        <span>commits</span>
+      </div>
+      <div class="numero revelar" data-atraso="100">
+        <strong data-contar="3818">0</strong>
+        <span>contribuições no último ano</span>
+      </div>
+      <div class="numero revelar" data-atraso="200">
+        <strong data-contar="57" data-sufixo="%">0</strong>
+        <span>dos repositórios em TypeScript</span>
+      </div>
+      <div class="numero revelar" data-atraso="300">
+        <strong data-contar="6">0</strong>
+        <span>produtos em produção</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SOBRE ==================== -->
+  <section class="secao" id="sobre">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">01</span>Sobre</h2>
+      <div class="sobre-grid">
+        <div class="revelar">
+          <p>
+            Construo produtos que rodam em produção e são usados todos os dias — painéis de
+            indicadores de saúde pública em dezenas de municípios, plataformas de atendimento
+            ao cidadão vendidas a prefeituras, sistemas de gestão financeira e de contratos.
+          </p>
+          <p>
+            Atuo em todas as camadas: modelagem de banco, API, frontend, mobile e deploy.
+            O que me interessa não é a tela bonita isolada, é o caminho inteiro — do dado bruto
+            que chega de um sistema de governo até a decisão que alguém toma olhando um número.
+          </p>
+        </div>
+        <ul class="lista-marcada revelar" data-atraso="120">
+          <li>Formação Full Stack pela <strong>Kenzie Academy Brasil</strong> (2023)</li>
+          <li>Bacharelado em <strong>Sistemas de Informação</strong> — IF Goiano, Campus Ceres</li>
+          <li>Integração com <strong>PEC / e-SUS / SISAB</strong></li>
+          <li>Sistemas de uso institucional em saúde e administração pública</li>
+          <li>TypeScript de ponta a ponta</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section class="secao secao-alt" id="projetos">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">02</span>Projetos</h2>
+      <p class="secao-sub revelar">
+        Produtos em produção. A maior parte vive em repositórios privados de clientes.
+      </p>
+
+      <div class="projetos">
+
+        <a class="projeto revelar" href="projetos/saude-brasil-360.html">
+          <span class="projeto-num">01</span>
+          <div class="projeto-topo">
+            <h3>Saúde Brasil 360</h3>
+            <span class="etiqueta">saúde pública</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> o repasse federal da Atenção Primária depende de
+            indicadores que o município precisa calcular e comprovar — e o dado chegava tarde
+            demais, agregado demais.
+          </p>
+          <p>
+            Calcula os indicadores oficiais do Ministério da Saúde a partir das bases de e-SUS/PEC
+            de cada prefeitura, gera as listas nominais para busca ativa e emite BPA e RAAS para
+            o faturamento do SUS.
+          </p>
+          <p class="mini-numeros">598 endpoints · 92 tabelas · 30+ módulos</p>
+          <ul class="stack"><li>React</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="80" href="projetos/atende-facil.html">
+          <span class="projeto-num">02</span>
+          <div class="projeto-topo">
+            <h3>Atende Fácil</h3>
+            <span class="etiqueta">govtech</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> prefeitura pequena atende cidadão por WhatsApp pessoal do
+            servidor. Nada tem protocolo, prazo ou histórico.
+          </p>
+          <p>
+            Plataforma multi-município de atendimento ao cidadão, vendida a prefeituras via
+            revendedores. Protocolo, triagem, encaminhamento por setor e encerramento com evidência.
+          </p>
+          <ul class="stack"><li>React + Vite</li><li>Express</li><li>Prisma</li><li>Ant Design</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="160" href="projetos/alcance.html">
+          <span class="projeto-num">03</span>
+          <div class="projeto-topo">
+            <h3>Alcance</h3>
+            <span class="etiqueta">gestão</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> contratos e comissionamento de representantes controlados
+            em planilha, sem rastro de quem alterou o quê.
+          </p>
+          <p>
+            Gestão de contratos e comissões: representantes, divisão com precisão decimal,
+            faturamento e importação automatizada de arquivos de fornecedor.
+          </p>
+          <ul class="stack"><li>React + Vite</li><li>Express</li><li>Prisma</li><li>Zod</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="240" href="projetos/distribuicao-financeira.html">
+          <span class="projeto-num">04</span>
+          <div class="projeto-topo">
+            <h3>Distribuição Financeira</h3>
+            <span class="etiqueta">mobile</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> quem tenta organizar as contas em planilha desiste na
+            terceira semana.
+          </p>
+          <p>
+            App de organização financeira: distribuição de renda por categoria, dívidas parceladas,
+            lançamentos recorrentes e telas independentes para separar pessoal de empresa.
+          </p>
+          <ul class="stack"><li>React Native</li><li>Expo</li><li>NestJS</li><li>Prisma</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="320" href="projetos/eventa-pro.html">
+          <span class="projeto-num">05</span>
+          <div class="projeto-topo">
+            <h3>Eventa Pro</h3>
+            <span class="etiqueta">eventos</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> organizador de corrida controla inscrição por formulário e
+            recebe por Pix na mão, sem emissão de ingresso.
+          </p>
+          <p>
+            Plataforma de eventos esportivos: inscrição de atletas, pagamento com taxa por
+            inscrição, emissão de ingresso e painel do organizador.
+          </p>
+          <ul class="stack"><li>NestJS 11</li><li>Prisma 7</li><li>PostgreSQL 16</li><li>Tailwind</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="400" href="projetos/crm-getmoto.html">
+          <span class="projeto-num">06</span>
+          <div class="projeto-topo">
+            <h3>CRM GetMoto</h3>
+            <span class="etiqueta">gestão</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>O problema:</strong> oficina anotava ordem de serviço em caderno e não sabia
+            quanto tinha em peças nem quanto entrou no mês.
+          </p>
+          <p>
+            Gestão de oficina: ordens de serviço com diagnóstico e responsável, estoque, fluxo de
+            caixa e controle de acesso por perfil.
+          </p>
+          <ul class="stack"><li>React</li><li>Express</li><li>Prisma</li><li>JWT</li></ul>
+          <span class="projeto-link">Ver detalhes <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== STACK ==================== -->
+  <section class="secao" id="stack">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">03</span>Stack</h2>
+      <p class="secao-sub revelar">O que realmente uso no dia a dia, não uma lista de tudo que já vi.</p>
+
+      <div class="stack-grid">
+        <div class="stack-bloco revelar">
+          <h3>Linguagem</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/typescript.svg" alt="" width="28" height="28" loading="lazy">
+              TypeScript
+            </li>
+            <li>
+              <img src="assets/tec/javascript.svg" alt="" width="28" height="28" loading="lazy">
+              JavaScript
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="70">
+          <h3>Frontend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React
+            </li>
+            <li>
+              <img src="assets/tec/vite.svg" alt="" width="28" height="28" loading="lazy">
+              Vite
+            </li>
+            <li>
+              <img src="assets/tec/nextjs.svg" alt="" width="28" height="28" loading="lazy">
+              Next.js
+            </li>
+            <li>
+              <img src="assets/tec/antdesign.svg" alt="" width="28" height="28" loading="lazy">
+              Ant Design
+            </li>
+            <li>
+              <img src="assets/tec/reactquery.svg" alt="" width="28" height="28" loading="lazy">
+              TanStack Query
+            </li>
+            <li>
+              <img src="assets/tec/tailwind.svg" alt="" width="28" height="28" loading="lazy">
+              TailwindCSS
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="140">
+          <h3>Backend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/nodejs.svg" alt="" width="28" height="28" loading="lazy">
+              Node.js
+            </li>
+            <li>
+              <img src="assets/tec/nestjs.svg" alt="" width="28" height="28" loading="lazy">
+              NestJS
+            </li>
+            <li>
+              <img src="assets/tec/express.svg" alt="" width="28" height="28" loading="lazy">
+              Express
+            </li>
+            <li>
+              <img src="assets/tec/prisma.svg" alt="" width="28" height="28" loading="lazy">
+              Prisma
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="210">
+          <h3>Mobile</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React Native
+            </li>
+            <li>
+              <img src="assets/tec/expo.svg" alt="" width="28" height="28" loading="lazy">
+              Expo
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="280">
+          <h3>Dados</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/postgresql.svg" alt="" width="28" height="28" loading="lazy">
+              PostgreSQL
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="350">
+          <h3>Testes &amp; Infra</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/vitest.svg" alt="" width="28" height="28" loading="lazy">
+              Vitest
+            </li>
+            <li>
+              <img src="assets/tec/jest.svg" alt="" width="28" height="28" loading="lazy">
+              Jest
+            </li>
+            <li>
+              <img src="assets/tec/docker.svg" alt="" width="28" height="28" loading="lazy">
+              Docker
+            </li>
+            <li>
+              <img src="assets/tec/vercel.svg" alt="" width="28" height="28" loading="lazy">
+              Vercel
+            </li>
+            <li>
+              <img src="assets/tec/jwt.svg" alt="" width="28" height="28" loading="lazy">
+              JWT
+            </li>
+            <li>
+              <img src="assets/tec/swagger.svg" alt="" width="28" height="28" loading="lazy">
+              Swagger
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CONTATO ==================== -->
+  <section class="secao secao-alt" id="contato">
+    <div class="container centro">
+      <h2 class="revelar"><span class="num-secao">04</span>Vamos conversar</h2>
+      <p class="secao-sub revelar">Disponível para projetos e oportunidades. Respondo rápido.</p>
+      <div class="hero-acoes centralizado revelar" data-atraso="100">
+        <a class="btn btn-primario" href="https://www.linkedin.com/in/carlosklz/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-linkedin"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="https://github.com/kralluz" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-github"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.instagram.com/klz.carlos/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-instagram"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Carlos Henrique · Ceres, Goiás</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

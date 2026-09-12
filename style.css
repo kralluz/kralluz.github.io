@@ -1,0 +1,952 @@
+/* =========================================================================
+   Portfolio — Carlos Henrique
+   CSS simples e comentado, feito para ser editado aos poucos.
+   Para mudar as cores, mexa so no bloco :root abaixo.
+   ========================================================================= */
+
+:root {
+  /* cores — mude aqui e o site inteiro acompanha */
+  --fundo:        #0d1117;   /* fundo principal */
+  --fundo-alt:    #11161d;   /* fundo das secoes alternadas */
+  --cartao:       #161b22;   /* fundo dos cards */
+  --borda:        #262d36;
+  --texto:        #e6edf3;
+  --texto-fraco:  #8b949e;   /* textos secundarios */
+  --destaque:     #58a6ff;   /* azul dos links e acentos */
+  --destaque-esc: #1f6feb;
+
+  /* medidas */
+  --largura:      1060px;    /* largura maxima do conteudo */
+  --raio:         10px;      /* arredondamento das bordas */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.centro { text-align: center; }
+
+a { color: var(--destaque); }
+
+
+/* ============================ TOPO ============================ */
+
+.hero {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--borda);
+  /* brilho sutil atras do titulo */
+  background:
+    radial-gradient(720px 320px at 50% 0%, rgba(31,111,235,.14), transparent 70%);
+}
+
+.hero-sup {
+  margin: 0 0 12px;
+  color: var(--texto-fraco);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(38px, 7vw, 62px);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.hero-cargo {
+  margin: 10px 0 0;
+  font-size: clamp(16px, 2.4vw, 19px);
+  color: var(--destaque);
+}
+
+.hero-frase {
+  margin: 26px 0 0;
+  max-width: 620px;
+  font-size: clamp(17px, 2.6vw, 21px);
+  line-height: 1.5;
+  color: var(--texto-fraco);
+}
+
+.hero-acoes {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--cartao);
+  color: var(--texto);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: border-color .18s, transform .18s;
+}
+
+.btn:hover {
+  border-color: var(--destaque);
+  transform: translateY(-2px);
+}
+
+.btn-primario {
+  background: var(--destaque-esc);
+  border-color: var(--destaque-esc);
+  color: #fff;
+}
+
+
+/* ========================== NUMEROS ========================== */
+
+.faixa-numeros {
+  border-bottom: 1px solid var(--borda);
+  background: var(--fundo-alt);
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.numero { text-align: center; }
+
+.numero strong {
+  display: block;
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--destaque);
+  letter-spacing: -.02em;
+}
+
+.numero span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--texto-fraco);
+}
+
+
+/* ========================== SECOES ========================== */
+
+.secao { padding: 84px 0; }
+
+.secao-alt {
+  background: var(--fundo-alt);
+  border-top: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+}
+
+.secao h2 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 4vw, 34px);
+  letter-spacing: -.02em;
+}
+
+.secao-sub {
+  margin: 0 0 40px;
+  color: var(--texto-fraco);
+  font-size: 15.5px;
+}
+
+
+/* =========================== SOBRE =========================== */
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.sobre-grid p { margin: 0 0 18px; }
+
+.lista-marcada {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-marcada li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--texto-fraco);
+}
+
+/* marcador proprio, em vez do bullet padrao */
+.lista-marcada li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--destaque);
+}
+
+.lista-marcada strong { color: var(--texto); }
+
+
+/* ========================== PROJETOS ========================== */
+
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.projeto {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 26px;
+  transition: border-color .18s, transform .18s;
+}
+
+.projeto:hover {
+  border-color: var(--destaque-esc);
+  transform: translateY(-3px);
+}
+
+.projeto-topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.projeto h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+.etiqueta {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  font-size: 11px;
+  color: var(--texto-fraco);
+  text-transform: lowercase;
+}
+
+.projeto p {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  color: var(--texto-fraco);
+}
+
+/* o paragrafo do problema ganha destaque — e o que prende a leitura */
+.projeto-problema {
+  padding-left: 14px;
+  border-left: 2px solid var(--destaque-esc);
+}
+
+.projeto-problema strong { color: var(--texto); }
+
+
+/* =========================== STACK =========================== */
+
+/* lista de tecnologias em formato de chip */
+ul.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.stack li {
+  padding: 4px 11px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: rgba(88,166,255,.06);
+  font-size: 12.5px;
+  color: var(--destaque);
+  font-family: ui-monospace, "JetBrains Mono", Consolas, monospace;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.stack-bloco h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--texto-fraco);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================== RODAPE =========================== */
+
+footer {
+  padding: 34px 0;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-fraco);
+  font-size: 13.5px;
+  text-align: center;
+}
+
+footer p { margin: 0; }
+
+
+/* ========================== RESPONSIVO ========================== */
+
+@media (max-width: 860px) {
+  .sobre-grid,
+  .projetos    { grid-template-columns: 1fr; }
+  .stack-grid  { grid-template-columns: repeat(2, 1fr); }
+  .numeros     { grid-template-columns: repeat(2, 1fr); }
+  .secao       { padding: 60px 0; }
+  .hero        { padding: 70px 0 56px; }
+}
+
+@media (max-width: 480px) {
+  .container   { padding: 0 18px; }
+  .stack-grid  { grid-template-columns: 1fr; }
+  .projeto     { padding: 20px; }
+  .projeto-topo { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+
+/* =========================================================================
+   ADIÇÕES: animações, foto, ícones e detalhes
+   ========================================================================= */
+
+/* --------------------- revelar na rolagem --------------------- */
+/* estado inicial: deslocado e invisível. O JS adiciona .visivel */
+.revelar {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s cubic-bezier(.22,.61,.36,1),
+              transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* quem pediu menos movimento no sistema vê tudo direto */
+@media (prefers-reduced-motion: reduce) {
+  .revelar { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* --------------------- topo com foto --------------------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-foto {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* anel gradiente girando devagar ao redor da foto */
+.foto-moldura {
+  position: relative;
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 0deg,
+              var(--destaque), #a371f7, #3fb950, var(--destaque));
+  animation: girar 9s linear infinite;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+.foto-moldura img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--fundo);
+  /* compensa a rotação da moldura para a foto ficar parada */
+  animation: girar 9s linear infinite reverse;
+}
+
+/* bolinha verde de "disponível" */
+.ponto-status {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3fb950;
+  border: 3px solid var(--fundo);
+  box-shadow: 0 0 0 0 rgba(63,185,80,.6);
+  animation: pulsar 2.4s ease-out infinite;
+}
+
+@keyframes pulsar {
+  0%   { box-shadow: 0 0 0 0 rgba(63,185,80,.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(63,185,80,0); }
+  100% { box-shadow: 0 0 0 0 rgba(63,185,80,0); }
+}
+
+
+/* --------------------- ícones nos botões --------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ico {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* a seta do botão principal desliza no hover */
+.btn-primario .ico { transition: transform .22s ease; }
+.btn-primario:hover .ico { transform: translateX(4px); }
+
+.hero-acoes.centralizado { justify-content: center; }
+
+
+/* --------------------- números --------------------- */
+/* tabular-nums evita o texto "pular" enquanto o contador roda */
+.numero strong {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+
+/* --------------------- cards de projeto clicáveis --------------------- */
+.projeto {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* halo que segue o cursor — as variáveis --mx/--my vêm do JS */
+.projeto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%),
+              rgba(88,166,255,.09), transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+
+.projeto:hover::before { opacity: 1; }
+
+.projeto h3 { transition: color .18s; }
+.projeto:hover h3 { color: var(--destaque); }
+
+.projeto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--destaque);
+  opacity: .75;
+  transition: opacity .2s, gap .2s;
+}
+
+.projeto:hover .projeto-link { opacity: 1; gap: 11px; }
+
+
+/* --------------------- detalhes finos --------------------- */
+/* linha de respiro no topo das seções alternadas */
+.secao-alt { position: relative; }
+
+.secao-alt::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  width: min(620px, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--destaque-esc), transparent);
+  opacity: .5;
+}
+
+/* seleção de texto com a cor da marca */
+::selection {
+  background: rgba(88,166,255,.28);
+  color: #fff;
+}
+
+/* foco visível para quem navega por teclado */
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--destaque);
+  outline-offset: 3px;
+  border-radius: var(--raio);
+}
+
+/* barra de rolagem discreta */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--fundo); }
+::-webkit-scrollbar-thumb {
+  background: #2b333d;
+  border-radius: 6px;
+  border: 3px solid var(--fundo);
+}
+::-webkit-scrollbar-thumb:hover { background: #3a444f; }
+
+
+/* --------------------- responsivo das adições --------------------- */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+  .hero-foto { order: -1; justify-self: center; }   /* foto vai para cima no celular */
+  .hero-acoes { justify-content: center; }
+  .hero-frase { margin-left: auto; margin-right: auto; }
+  .foto-moldura { width: 168px; height: 168px; }
+  .ponto-status { right: 10px; bottom: 10px; width: 15px; height: 15px; }
+}
+
+
+/* =========================================================================
+   REFINO DE DESIGN
+   tipografia, navegação, textura de fundo e hierarquia
+   ========================================================================= */
+
+/* ------------------------- tipografia ------------------------- */
+:root {
+  --fonte-titulo: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fonte-mono:   'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
+body { font-family: var(--fonte-titulo); }
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.hero h1 { font-weight: 700; letter-spacing: -.035em; }
+
+/* texto corrido um pouco mais leve que os títulos */
+p, li { font-weight: 400; }
+
+/* tudo que é "dado" usa monoespaçada — cria uma segunda voz no layout */
+.hero-sup,
+.num-secao,
+.projeto-num,
+.etiqueta,
+.numero strong,
+ul.stack li,
+.fato span {
+  font-family: var(--fonte-mono);
+}
+
+
+/* ------------------------- textura de fundo ------------------------- */
+/* grade sutilíssima: dá profundidade sem chamar atenção */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(88,166,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,.022) 1px, transparent 1px);
+  background-size: 56px 56px;
+  /* desaparece nas bordas para não virar xadrez */
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+}
+
+body > * { position: relative; z-index: 1; }
+
+
+/* ------------------------- navegação ------------------------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(13,17,23,.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, background .3s;
+}
+
+/* a borda só aparece depois que a pessoa rola — JS adiciona .rolou */
+.nav.rolou {
+  border-bottom-color: var(--borda);
+  background: rgba(13,17,23,.88);
+}
+
+.nav-interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.nav-marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.nav-marca img {
+  border-radius: 50%;
+  border: 1px solid var(--borda);
+}
+
+.nav-marca em { color: var(--destaque); font-style: normal; }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--texto-fraco);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--texto); }
+
+/* sublinhado que cresce do centro */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: 0; height: 1.5px;
+  background: var(--destaque);
+  transform: translateX(-50%);
+  transition: width .26s cubic-bezier(.22,.61,.36,1);
+}
+
+.nav-links a:hover::after,
+.nav-links a.ativo::after { width: 100%; }
+
+.nav-links a.ativo { color: var(--destaque); }
+
+/* barra fininha de progresso da leitura */
+.nav-progresso {
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--destaque-esc), var(--destaque));
+  transition: width .1s linear;
+}
+
+/* o conteúdo precisa começar abaixo da nav fixa */
+.hero { padding-top: 150px; }
+
+
+/* ------------------------- hierarquia das seções ------------------------- */
+.secao h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* numeração discreta antes do título */
+.num-secao {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--destaque);
+  opacity: .7;
+  letter-spacing: .06em;
+}
+
+/* linha que atravessa o resto da largura depois do título */
+.secao h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--borda), transparent);
+}
+
+.centro h2 { justify-content: center; }
+.centro h2::after { display: none; }
+
+
+/* ------------------------- cards numerados ------------------------- */
+.projeto-num {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--texto);
+  opacity: .045;
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+}
+
+.projeto:hover .projeto-num {
+  opacity: .11;
+  transform: translateY(-2px);
+}
+
+/* a etiqueta não pode colidir com o número */
+.projeto-topo { padding-right: 46px; }
+
+
+/* ------------------------- micro-interações ------------------------- */
+/* chips de stack reagem individualmente */
+ul.stack li { transition: border-color .2s, background .2s, transform .2s; }
+
+.projeto:hover ul.stack li,
+ul.stack li:hover {
+  border-color: rgba(88,166,255,.35);
+  background: rgba(88,166,255,.1);
+}
+
+ul.stack li:hover { transform: translateY(-2px); }
+
+/* sombra suave nos cards ao passar o mouse */
+.projeto:hover {
+  box-shadow: 0 14px 40px -18px rgba(0,0,0,.75);
+}
+
+/* botões com brilho que atravessa no hover */
+.btn { position: relative; overflow: hidden; }
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -80%;
+  width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent);
+  transform: skewX(-20deg);
+  transition: left .55s cubic-bezier(.22,.61,.36,1);
+}
+
+.btn:hover::after { left: 130%; }
+
+/* a moldura da foto ganha brilho quando o mouse chega perto */
+.hero-foto:hover .foto-moldura {
+  filter: drop-shadow(0 0 22px rgba(88,166,255,.28));
+}
+
+.foto-moldura { transition: filter .4s; }
+
+
+/* ------------------------- responsivo da nav ------------------------- */
+@media (max-width: 720px) {
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 13px; }
+  .nav-marca span { display: none; }   /* no celular fica só o avatar */
+  .hero { padding-top: 120px; }
+}
+
+@media (max-width: 460px) {
+  .nav-links { gap: 14px; }
+  .projeto-num { font-size: 34px; top: 16px; right: 18px; }
+}
+
+/* a nav fixa cobriria o titulo ao clicar num link do menu — este recuo evita isso */
+#sobre, #projetos, #stack, #contato { scroll-margin-top: 76px; }
+
+
+/* =========================================================================
+   RESPIRO ENTRE SEÇÕES
+   As duas últimas seções somavam menos que uma tela, então clicar em "Stack"
+   rolava até o fim e mostrava Contato junto — parecia que tinha pulado.
+   Cada seção agora ocupa espaço suficiente para dominar a tela quando ativa.
+   ========================================================================= */
+
+.secao { padding: 110px 0; }
+
+/* garante que cada seção tenha presença própria ao ser aberta pelo menu */
+#stack   { min-height: 76vh; }
+#contato { min-height: 66vh; display: flex; align-items: center; }
+
+/* o contato é o fim da página: um pouco mais de ar embaixo */
+#contato .container { width: 100%; }
+
+/* separação visual extra entre stack e contato */
+#stack { border-bottom: 1px solid var(--borda); }
+
+
+/* ------------------------- menu com mais folga ------------------------- */
+.nav-links { gap: 40px; }
+
+/* área de clique maior que o texto — melhor no celular e no mouse */
+.nav-links a {
+  padding: 8px 2px;
+  letter-spacing: .01em;
+}
+
+/* separador discreto entre os itens */
+.nav-links li + li { position: relative; }
+
+.nav-links li + li::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--borda);
+}
+
+
+@media (max-width: 860px) {
+  .secao   { padding: 78px 0; }
+  #stack   { min-height: auto; }
+  #contato { min-height: auto; display: block; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { gap: 26px; }
+  .nav-links li + li::before { left: -14px; }
+}
+
+
+
+
+/* =========================================================================
+   STACK COM LOGOS (Devicon — logos originais coloridos, arquivos locais)
+   ========================================================================= */
+
+ul.stack-icones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+ul.stack-icones li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px 9px 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  color: var(--texto);
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  transition: border-color .22s, background .22s, transform .22s, box-shadow .22s;
+}
+
+ul.stack-icones img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  /* levemente dessaturado em repouso, cor cheia no hover */
+  filter: saturate(.85);
+  transition: transform .22s, filter .22s;
+}
+
+ul.stack-icones li:hover {
+  border-color: #3d4754;
+  background: #1c222b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px -12px rgba(0,0,0,.8);
+}
+
+ul.stack-icones li:hover img {
+  filter: saturate(1.15);
+  transform: scale(1.1);
+}
+
+/* entrada: cada logo aparece um pouco depois do anterior */
+.stack-bloco.visivel ul.stack-icones img {
+  animation: surgir-logo .55s cubic-bezier(.22,.61,.36,1) backwards;
+}
+
+@keyframes surgir-logo {
+  from { opacity: 0; transform: scale(.5) rotate(-12deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.stack-bloco.visivel li:nth-child(1) img { animation-delay: .04s; }
+.stack-bloco.visivel li:nth-child(2) img { animation-delay: .10s; }
+.stack-bloco.visivel li:nth-child(3) img { animation-delay: .16s; }
+.stack-bloco.visivel li:nth-child(4) img { animation-delay: .22s; }
+.stack-bloco.visivel li:nth-child(5) img { animation-delay: .28s; }
+.stack-bloco.visivel li:nth-child(6) img { animation-delay: .34s; }
+
+/* alguns logos do Devicon sao escuros demais para fundo preto */
+ul.stack-icones img[src*="nextjs"],
+ul.stack-icones img[src*="vercel"],
+ul.stack-icones img[src*="express"],
+ul.stack-icones img[src*="prisma"] {
+  filter: saturate(.85) invert(1) brightness(1.6);
+}
+
+ul.stack-icones li:hover img[src*="nextjs"],
+ul.stack-icones li:hover img[src*="vercel"],
+ul.stack-icones li:hover img[src*="express"],
+ul.stack-icones li:hover img[src*="prisma"] {
+  filter: invert(1) brightness(1.9);
+}
+
+.stack-grid { gap: 36px 30px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-bloco.visivel ul.stack-icones img { animation: none; }
+}
+
+/* linha de numeros dentro do card de projeto na home */
+.mini-numeros {
+  font-family: var(--fonte-mono);
+  font-size: 12px !important;
+  color: var(--destaque) !important;
+  opacity: .75;
+  margin-bottom: 14px !important;
+}

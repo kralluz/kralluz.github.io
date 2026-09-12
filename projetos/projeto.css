@@ -1,0 +1,353 @@
+/* =========================================================================
+   Estilo das páginas de projeto.
+   Herda o visual do site e acrescenta o que só existe aqui:
+   galeria de prints, blocos de destaque e a barra de voltar.
+   ========================================================================= */
+
+/* ---------------------- barra de topo ---------------------- */
+.topo-fixo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13, 17, 23, .82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.topo-fixo .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto-fraco);
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: color .18s, gap .18s;
+}
+
+.voltar:hover { color: var(--destaque); gap: 12px; }
+
+/* a seta do "voltar" aponta para a esquerda */
+.voltar .ico { transform: rotate(180deg); }
+
+
+/* ---------------------- cabeçalho do projeto ---------------------- */
+.projeto-hero {
+  padding: 72px 0 56px;
+  background: radial-gradient(780px 300px at 20% 0%, rgba(31,111,235,.13), transparent 70%);
+  border-bottom: 1px solid var(--borda);
+}
+
+.projeto-hero .etiqueta { margin-bottom: 18px; display: inline-block; }
+
+.projeto-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 5.4vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+}
+
+.projeto-resumo {
+  max-width: 680px;
+  margin: 0 0 28px;
+  font-size: clamp(16px, 2.3vw, 19px);
+  color: var(--texto-fraco);
+  line-height: 1.6;
+}
+
+/* linha de fatos: papel, período, situação */
+.fatos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--borda);
+}
+
+.fato span {
+  display: block;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  margin-bottom: 5px;
+}
+
+.fato strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* ---------------------- corpo ---------------------- */
+.conteudo { padding: 72px 0; }
+
+.conteudo h2 {
+  margin: 0 0 16px;
+  font-size: clamp(21px, 3vw, 26px);
+  letter-spacing: -.01em;
+}
+
+.conteudo h2:not(:first-child) { margin-top: 56px; }
+
+.conteudo p {
+  margin: 0 0 18px;
+  max-width: 760px;
+  color: var(--texto-fraco);
+}
+
+.conteudo strong { color: var(--texto); }
+
+/* bloco de destaque para o problema central */
+.destaque {
+  margin: 0 0 28px;
+  padding: 22px 26px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--destaque-esc);
+  border-radius: var(--raio);
+}
+
+.destaque p { margin: 0; font-size: 16px; }
+
+/* lista de entregas */
+.entregas {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  max-width: 760px;
+}
+
+.entregas li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 13px;
+  color: var(--texto-fraco);
+}
+
+.entregas li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid var(--destaque);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.entregas strong { color: var(--texto); }
+
+
+/* ---------------------- galeria de prints ---------------------- */
+/* É AQUI que você vai colocar as imagens.
+   Cada figura aceita uma legenda embaixo. */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin: 26px 0 0;
+}
+
+.galeria figure {
+  margin: 0;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  transition: border-color .2s, transform .2s;
+}
+
+.galeria figure:hover {
+  border-color: var(--destaque-esc);
+  transform: translateY(-3px);
+}
+
+.galeria img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--borda);
+}
+
+.galeria figcaption {
+  padding: 13px 16px;
+  font-size: 13px;
+  color: var(--texto-fraco);
+}
+
+/* espaço reservado enquanto não há print */
+.vaga-print {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+  padding: 24px;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 9px,
+    rgba(88,166,255,.045) 9px, rgba(88,166,255,.045) 18px);
+  color: var(--texto-fraco);
+  font-size: 13.5px;
+  text-align: center;
+  border-bottom: 1px solid var(--borda);
+}
+
+
+/* ---------------------- navegação entre projetos ---------------------- */
+.nav-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--borda);
+}
+
+
+@media (max-width: 640px) {
+  .projeto-hero { padding: 48px 0 40px; }
+  .conteudo     { padding: 48px 0; }
+  .fatos        { gap: 22px; }
+  .galeria      { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================================
+   BLOCOS NOVOS: numeros, modulos, desafios
+   ========================================================================= */
+
+/* ---------------------- numeros do projeto ---------------------- */
+.numeros-projeto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  margin: 0 0 56px;
+  background: var(--borda);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.num-cartao {
+  padding: 22px 18px;
+  background: var(--cartao);
+  text-align: center;
+  transition: background .2s;
+}
+
+.num-cartao:hover { background: #1b212a; }
+
+.num-cartao strong {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: clamp(21px, 3.2vw, 27px);
+  color: var(--destaque);
+  letter-spacing: -.02em;
+}
+
+.num-cartao span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--texto-fraco);
+}
+
+
+/* ---------------------- módulos ---------------------- */
+.modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.grupo-modulo {
+  padding: 22px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  transition: border-color .2s;
+}
+
+.grupo-modulo:hover { border-color: #39434f; }
+
+.grupo-modulo h3 {
+  margin: 0 0 14px;
+  font-size: 12.5px;
+  font-family: var(--fonte-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.grupo-modulo ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grupo-modulo li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  color: var(--texto-fraco);
+}
+
+.grupo-modulo li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 1px;
+  background: var(--destaque);
+  opacity: .6;
+}
+
+
+/* ---------------------- desafios ---------------------- */
+.desafio {
+  margin-bottom: 22px;
+  padding: 24px 26px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  transition: border-color .2s, transform .2s;
+}
+
+.desafio:hover {
+  border-color: var(--destaque-esc);
+  transform: translateX(3px);
+}
+
+.desafio h3 {
+  margin: 0 0 10px;
+  font-size: 16.5px;
+  color: var(--texto);
+}
+
+.desafio p { margin: 0; max-width: none; }
+
+
+@media (max-width: 640px) {
+  .numeros-projeto { grid-template-columns: repeat(2, 1fr); }
+  .modulos         { grid-template-columns: 1fr; }
+  .desafio         { padding: 18px 20px; }
+}
+
+/* a imagem do print abre em tamanho cheio ao clicar */
+.galeria a { display: block; }
+.galeria figure img { transition: opacity .2s; }
+.galeria figure:hover img { opacity: .88; }

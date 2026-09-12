@@ -1,0 +1,106 @@
+        <div class="stack-bloco revelar">
+          <h3>Linguagem</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/typescript.svg" alt="" width="28" height="28" loading="lazy">
+              TypeScript
+            </li>
+            <li>
+              <img src="assets/tec/javascript.svg" alt="" width="28" height="28" loading="lazy">
+              JavaScript
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="70">
+          <h3>Frontend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React
+            </li>
+            <li>
+              <img src="assets/tec/vite.svg" alt="" width="28" height="28" loading="lazy">
+              Vite
+            </li>
+            <li>
+              <img src="assets/tec/nextjs.svg" alt="" width="28" height="28" loading="lazy">
+              Next.js
+            </li>
+            <li>
+              <img src="assets/tec/antdesign.svg" alt="" width="28" height="28" loading="lazy">
+              Ant Design
+            </li>
+            <li>
+              <img src="assets/tec/tailwind.svg" alt="" width="28" height="28" loading="lazy">
+              TailwindCSS
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="140">
+          <h3>Backend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/nodejs.svg" alt="" width="28" height="28" loading="lazy">
+              Node.js
+            </li>
+            <li>
+              <img src="assets/tec/nestjs.svg" alt="" width="28" height="28" loading="lazy">
+              NestJS
+            </li>
+            <li>
+              <img src="assets/tec/express.svg" alt="" width="28" height="28" loading="lazy">
+              Express
+            </li>
+            <li>
+              <img src="assets/tec/prisma.svg" alt="" width="28" height="28" loading="lazy">
+              Prisma
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="210">
+          <h3>Mobile</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React Native
+            </li>
+            <li>
+              <img src="assets/tec/expo.svg" alt="" width="28" height="28" loading="lazy">
+              Expo
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="280">
+          <h3>Dados</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/postgresql.svg" alt="" width="28" height="28" loading="lazy">
+              PostgreSQL
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="350">
+          <h3>Testes &amp; Infra</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="assets/tec/vitest.svg" alt="" width="28" height="28" loading="lazy">
+              Vitest
+            </li>
+            <li>
+              <img src="assets/tec/jest.svg" alt="" width="28" height="28" loading="lazy">
+              Jest
+            </li>
+            <li>
+              <img src="assets/tec/docker.svg" alt="" width="28" height="28" loading="lazy">
+              Docker
+            </li>
+            <li>
+              <img src="assets/tec/vercel.svg" alt="" width="28" height="28" loading="lazy">
+              Vercel
+            </li>
+            <li>
+              <img src="assets/tec/swagger.svg" alt="" width="28" height="28" loading="lazy">
+              Swagger
+            </li>
+          </ul>
+        </div>

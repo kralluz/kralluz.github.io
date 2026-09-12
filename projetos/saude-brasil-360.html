@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saúde Brasil 360 — Carlos Henrique</title>
+<meta name="description" content="Sistema de gestão usado por prefeituras e secretarias municipais de saúde para acompanhar, calcular e comprovar os indicadores exigidos pelo Ministério da Saúde — de que depende o repasse do financiamento federal da Atenção Primária.">
+<link rel="icon" href="../assets/perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+<div class="topo-fixo">
+  <div class="container">
+    <a class="voltar" href="../index.html#projetos">
+      <svg class="ico"><use href="#i-seta"/></svg>
+      Todos os projetos
+    </a>
+    <a class="btn" href="../index.html#contato">Contato</a>
+  </div>
+</div>
+
+<header class="projeto-hero">
+  <div class="container">
+    <span class="etiqueta">saúde pública</span>
+    <h1 class="revelar">Saúde Brasil 360</h1>
+    <p class="projeto-resumo revelar" data-atraso="80">Sistema de gestão usado por prefeituras e secretarias municipais de saúde para acompanhar, calcular e comprovar os indicadores exigidos pelo Ministério da Saúde — de que depende o repasse do financiamento federal da Atenção Primária.</p>
+    <ul class="stack revelar" data-atraso="140"><li>TypeScript</li><li>React 18</li><li>Express 5</li><li>Prisma 6</li><li>PostgreSQL</li><li>Ant Design</li><li>TanStack Query</li><li>MinIO</li><li>OpenTelemetry</li></ul>
+
+    <div class="fatos revelar" data-atraso="200">
+      <div class="fato"><span>Papel</span><strong>Desenvolvimento full stack e arquitetura</strong></div>
+      <div class="fato"><span>Período</span><strong>Em produção</strong></div>
+      <div class="fato"><span>Situação</span><strong>Ativo</strong></div>
+    </div>
+  </div>
+</header>
+
+<main class="conteudo">
+  <div class="container">
+
+    <div class="numeros-projeto revelar">
+        <div class="num-cartao">
+          <strong>358 mil</strong>
+          <span>linhas de código</span>
+        </div>
+        <div class="num-cartao">
+          <strong>598</strong>
+          <span>endpoints na API</span>
+        </div>
+        <div class="num-cartao">
+          <strong>92</strong>
+          <span>tabelas no banco</span>
+        </div>
+        <div class="num-cartao">
+          <strong>214</strong>
+          <span>migrations</span>
+        </div>
+        <div class="num-cartao">
+          <strong>30+</strong>
+          <span>módulos</span>
+        </div>
+        <div class="num-cartao">
+          <strong>50+</strong>
+          <span>telas</span>
+        </div>
+    </div>
+
+
+    <h2 class="revelar">O problema</h2>
+    <div class="destaque revelar" data-atraso="60">
+      <p>O financiamento federal da Atenção Primária (Previne Brasil) depende de indicadores que o município precisa <strong>calcular, comprovar e atingir</strong>. O dado existe — está espalhado no prontuário eletrônico de cada equipe — mas chega ao gestor tarde demais e agregado demais: um percentual fechado no fim do quadrimestre, quando não dá mais para corrigir, e que não diz <strong>quem</strong> precisa ser atendido.</p>
+    </div>
+
+    <h2 class="revelar">O que foi construído</h2>
+    <ul class="entregas revelar" data-atraso="60">
+      <li>Cálculo dos indicadores <strong>C1–C7</strong> da Atenção Primária conforme a nota metodológica oficial do Ministério da Saúde</li>
+      <li>Indicadores de <strong>Saúde Bucal (B1–B6)</strong>, <strong>eMulti</strong> e cofinanciamento estadual</li>
+      <li><strong>Listas nominais</strong> para busca ativa — o agente sabe quem visitar hoje</li>
+      <li>Geração de <strong>BPA e RAAS</strong>, os documentos oficiais de faturamento do SUS</li>
+      <li>Acompanhamento <strong>parcial</strong> do quadrimestre, não só o resultado final</li>
+      <li>Matriz de permissão por módulo com <strong>15 perfis</strong> de usuário e restrição geográfica por município</li>
+    </ul>
+
+    <h2 class="revelar">Módulos</h2>
+    <p class="revelar">Mais de 30 módulos, do cálculo de indicador ao faturamento do SUS.</p>
+    <div class="modulos">
+      <div class="grupo-modulo revelar">
+        <h3>Indicadores</h3>
+        <ul><li>Atenção Primária (C1–C7)</li><li>Saúde Bucal (B1–B6)</li><li>eMulti (M1–M2)</li><li>Vínculo e acompanhamento territorial</li><li>Componente III — qualidade</li><li>Cofinanciamento estadual</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Cidadãos e território</h3>
+        <ul><li>Cadastro único de cidadãos</li><li>Cadastros duplicados e unificação</li><li>Integração CADSUS</li><li>Gestantes de risco</li><li>Idosos acamados</li><li>Deficiências, etnias e Bolsa Família</li><li>Controle de insulinas</li><li>Mapa de visitas do ACS</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Faturamento SUS</h3>
+        <ul><li>BPA individual e consolidado</li><li>RAAS por competência</li><li>Tabela SIGTAP</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Operação</h3>
+        <ul><li>Atendimento nominal</li><li>Atividade coletiva</li><li>Absenteísmo</li><li>Fila de atendimento</li><li>Vacinas e busca ativa</li><li>Encaminhamentos</li><li>Próteses dentárias</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Gestão e suporte</h3>
+        <ul><li>Mensalidades e financeiro</li><li>Chamados em kanban</li><li>Notificações por WhatsApp</li><li>Pesquisa de satisfação</li><li>Certificados</li><li>Assistente de IA</li><li>Auditoria e permissões (RBAC)</li></ul>
+      </div>
+    </div>
+
+    <h2 class="revelar">Arquitetura</h2>
+    <ul class="entregas revelar">
+      <li><strong>Monorepo</strong> com frontend, API e um repositório de queries e normas metodológicas dos indicadores</li>
+      <li>Organização <strong>feature-based</strong> nas duas pontas: cada módulo carrega suas próprias camadas (Routes → Controller → Service → Repository)</li>
+      <li><strong>Multi-tenant real</strong>: além do banco principal, o backend abre conexões dinâmicas por código IBGE para a base de e-SUS/PEC de cada prefeitura</li>
+      <li><strong>Snapshots versionados</strong> por município e competência — o indicador é publicado, não recalculado a cada acesso</li>
+      <li><strong>Eleição de líder</strong> via lock em banco para coordenar jobs agendados entre múltiplas instâncias</li>
+      <li>Observabilidade com <strong>OpenTelemetry</strong>, correlation-id por requisição e log estruturado</li>
+    </ul>
+
+    <h2 class="revelar">Integrações</h2>
+    <p class="revelar">Sistemas externos com que o produto conversa.</p>
+    <ul class="stack revelar"><li>CADSUS / DATASUS (SOAP)</li><li>e-SUS PEC</li><li>IBGE</li><li>SIGTAP</li><li>WhatsApp</li><li>OpenAI</li><li>MinIO</li><li>Axiom</li></ul>
+
+    <h2 class="revelar">Desafios técnicos</h2>
+
+    <div class="desafio revelar">
+      <h3>Cálculo com regra metodológica oficial</h3>
+      <p>Cada indicador segue nota técnica do Ministério da Saúde. Em vez de recalcular a métrica a cada acesso — o que significaria varrer a população inteira do município toda vez — criei um padrão genérico de <strong>serviço de snapshot</strong>, reaproveitado por cerca de 15 indicadores diferentes: o resultado é publicado e versionado por competência, o que dá auditoria histórica e elimina o recálculo.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Um banco de dados por prefeitura</h3>
+      <p>Cada município roda sua própria instância de e-SUS/PEC, com credenciais próprias. O backend precisa abrir e manter conexões separadas por código IBGE. A primeira versão criava uma conexão nova a cada requisição e vazava conexões; substituí por uma <strong>factory com cache, TTL e limite duro</strong> de conexões simultâneas.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Jobs agendados com várias instâncias no ar</h3>
+      <p>A aplicação roda em múltiplas instâncias sob PM2. Um cron ingênuo dispararia a sincronização noturna N vezes ao mesmo tempo. Resolvi com <strong>eleição de líder por lock em tabela</strong>, com heartbeat: só a instância dona renova o lock, e outra assume sozinha quando a líder morre.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Dado que chega sujo</h3>
+      <p>A base de cidadãos vinda das prefeituras tem o mesmo cidadão cadastrado mais de uma vez, com CPF ou CNS divergente. O módulo de cadastros duplicados normaliza os documentos e sinaliza os registros unificados, para a equipe do município tratar as duplicidades sem perder histórico.</p>
+    </div>
+
+    <h2 class="revelar">Telas</h2>
+    <p class="revelar">Prints do sistema em funcionamento.</p>
+    <div class="galeria">
+      <figure>
+        <a href="../assets/prints/painel-equipe.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/painel-equipe.png" alt="Indicadores da Atenção Primária por equipe" loading="lazy">
+        </a>
+        <figcaption>Indicadores da Atenção Primária por equipe</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/rbac.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/rbac.png" alt="Matriz de permissões — 15 perfis e 47 módulos" loading="lazy">
+        </a>
+        <figcaption>Matriz de permissões — 15 perfis e 47 módulos</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/vacinas.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/vacinas.png" alt="Busca ativa de vacinas — pendências por calendário" loading="lazy">
+        </a>
+        <figcaption>Busca ativa de vacinas — pendências por calendário</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/bpa.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/bpa.png" alt="BPA — faturamento SUS por competência" loading="lazy">
+        </a>
+        <figcaption>BPA — faturamento SUS por competência</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/mapa-visitas.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/mapa-visitas.png" alt="Mapa de visitas domiciliares do ACS" loading="lazy">
+        </a>
+        <figcaption>Mapa de visitas domiciliares do ACS</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/absenteismo.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/absenteismo.png" alt="Absenteísmo — agendamentos e comparecimento" loading="lazy">
+        </a>
+        <figcaption>Absenteísmo — agendamentos e comparecimento</figcaption>
+      </figure>
+    </div>
+
+    <div class="nav-projetos">
+      <a class="btn" href="../index.html#projetos">
+        <svg class="ico" style="transform:rotate(180deg)"><use href="#i-seta"/></svg>
+        Todos os projetos
+      </a>
+      <a class="btn btn-primario" href="atende-facil.html">
+        Atende Fácil
+        <svg class="ico"><use href="#i-seta"/></svg>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Carlos Henrique · Ceres, Goiás</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

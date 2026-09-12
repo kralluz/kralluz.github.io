@@ -1,0 +1,9 @@
+# Prints ORIGINAIS, sem censura — contem dado pessoal real.
+# NUNCA devem ir para o repositorio publico.
+assets/prints_original/
+
+# lixo de build e execucao local
+__pycache__/
+*.pyc
+server.log
+devicon_tmp.json

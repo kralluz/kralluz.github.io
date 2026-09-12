@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atende Fácil — Carlos Henrique</title>
+<meta name="description" content="Plataforma de atendimento ao cidadão para prefeituras: reúne num só painel o WhatsApp oficial da organização, o chamado formal com protocolo e prazo, um quadro Kanban para a equipe e um robô de atendimento montado em tela. O cidadão abre e acompanha a solicitação sem precisar de cadastro.">
+<link rel="icon" href="../assets/perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+<div class="topo-fixo">
+  <div class="container">
+    <a class="voltar" href="../index.html#projetos">
+      <svg class="ico"><use href="#i-seta"/></svg>
+      Todos os projetos
+    </a>
+    <a class="btn" href="../index.html#contato">Contato</a>
+  </div>
+</div>
+
+<header class="projeto-hero">
+  <div class="container">
+    <span class="etiqueta">atendimento público</span>
+    <h1 class="revelar">Atende Fácil</h1>
+    <p class="projeto-resumo revelar" data-atraso="80">Plataforma de atendimento ao cidadão para prefeituras: reúne num só painel o WhatsApp oficial da organização, o chamado formal com protocolo e prazo, um quadro Kanban para a equipe e um robô de atendimento montado em tela. O cidadão abre e acompanha a solicitação sem precisar de cadastro.</p>
+    <ul class="stack revelar" data-atraso="140"><li>TypeScript</li><li>React 18</li><li>Express 5</li><li>Prisma 6</li><li>PostgreSQL</li><li>Ant Design</li><li>TanStack Query</li><li>React Flow</li><li>MinIO</li><li>OpenTelemetry</li></ul>
+
+    <div class="fatos revelar" data-atraso="200">
+      <div class="fato"><span>Papel</span><strong>Desenvolvimento full stack e arquitetura</strong></div>
+      <div class="fato"><span>Período</span><strong>2026 — em produção</strong></div>
+      <div class="fato"><span>Situação</span><strong>Ativo</strong></div>
+    </div>
+  </div>
+</header>
+
+<main class="conteudo">
+  <div class="container">
+
+    <div class="numeros-projeto revelar">
+        <div class="num-cartao">
+          <strong>103 mil</strong>
+          <span>linhas de código</span>
+        </div>
+        <div class="num-cartao">
+          <strong>293</strong>
+          <span>endpoints na API</span>
+        </div>
+        <div class="num-cartao">
+          <strong>66</strong>
+          <span>tabelas no banco</span>
+        </div>
+        <div class="num-cartao">
+          <strong>29</strong>
+          <span>migrations</span>
+        </div>
+        <div class="num-cartao">
+          <strong>29</strong>
+          <span>telas do painel</span>
+        </div>
+        <div class="num-cartao">
+          <strong>97</strong>
+          <span>arquivos de teste</span>
+        </div>
+    </div>
+
+
+    <h2 class="revelar">O problema</h2>
+    <div class="destaque revelar" data-atraso="60">
+      <p>O cidadão manda mensagem no WhatsApp da prefeitura e a solicitação morre na conversa: sem protocolo, sem prazo, sem setor responsável, sem ninguém sabendo se foi resolvida. Do outro lado, o atendente abre <strong>um aparelho por número</strong> e a gestão não tem como saber o que está em aberto — nem provar o que foi atendido.</p>
+    </div>
+
+    <h2 class="revelar">O que foi construído</h2>
+    <ul class="entregas revelar" data-atraso="60">
+      <li><strong>Vários números de WhatsApp</strong> num painel só, por Z-API, Meta oficial ou Telegram, com a mesma abstração de canal</li>
+      <li><strong>Chamado com protocolo</strong> público sequencial, prazo, transferência entre setores e histórico que não pode ser reescrito</li>
+      <li><strong>Robô montado em tela</strong> — construtor visual de fluxos que responde, encaminha ou coleta dados antes do atendente entrar</li>
+      <li><strong>Portal público sem login</strong>: o cidadão abre a solicitação, anexa foto e acompanha pelo protocolo</li>
+      <li><strong>Kanban</strong> sincronizado com o status do chamado, para a equipe interna</li>
+      <li><strong>Multi-organização</strong> desde a raiz, com venda direta ou por revenda que administra a própria carteira</li>
+    </ul>
+
+    <h2 class="revelar">Módulos</h2>
+    <p class="revelar">Vinte e cinco módulos, do webhook do WhatsApp ao relatório de acesso a dado pessoal.</p>
+    <div class="modulos">
+      <div class="grupo-modulo revelar">
+        <h3>Atendimento</h3>
+        <ul><li>Conversas em tempo real (SSE)</li><li>Notas internas que não vão ao cidadão</li><li>Mensagens agendadas</li><li>Respostas rápidas com anexo</li><li>Contatos e bloqueio de abuso</li><li>Avaliação de satisfação (NPS/CSAT)</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Chamados</h3>
+        <ul><li>Protocolo sequencial por organização</li><li>Triagem, atribuição e transferência</li><li>Pausa de SLA em espera de resposta</li><li>Reabertura com vínculo à origem</li><li>Setores e categorias</li><li>Portal público do cidadão</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Automação</h3>
+        <ul><li>Motor de fluxos com editor visual</li><li>Versionamento imutável do grafo</li><li>Timers de inatividade</li><li>URA de texto (legado)</li><li>Feriados por organização</li><li>Templates HSM da Meta</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Plataforma</h3>
+        <ul><li>Canais Z-API, Meta e Telegram</li><li>Quadros Kanban</li><li>Revendas e white-label</li><li>Módulos contratuais por cliente</li><li>Integração CENTI (débitos e certidões)</li><li>Auditoria e relatório LGPD</li><li>RBAC com 7 papéis</li></ul>
+      </div>
+    </div>
+
+    <h2 class="revelar">Arquitetura</h2>
+    <ul class="entregas revelar">
+      <li><strong>Monorepo</strong> com API e painel independentes, mais a orquestração de deploy em Python via SSH e Docker</li>
+      <li>Backend organizado <strong>por domínio</strong>, não por camada técnica — a máquina de estados de chamado não importa Prisma nem Express</li>
+      <li><strong>Isolamento entre organizações no banco</strong>: uma extensão do Prisma Client intercepta toda query para forçar o filtro de tenant</li>
+      <li>Invariantes que o Prisma não expressa garantidos por <strong>índice único parcial</strong> escrito à mão no SQL da migration</li>
+      <li>Histórico de chamado e de cartão <strong>append-only</strong>, garantido por trigger de banco</li>
+      <li>Webhook dos provedores autenticado por <strong>segredo por canal</strong> (HMAC), não por JWT</li>
+      <li>Credencial de canal e de integração cifrada em <strong>AES-256-CBC</strong>, nunca devolvida em resposta de API</li>
+      <li>CI roda contra <strong>Postgres real</strong>, valida o schema e trava drift entre migration e modelo — deploy nunca é automático no merge</li>
+    </ul>
+
+    <h2 class="revelar">Integrações</h2>
+    <p class="revelar">Sistemas externos com que o produto conversa.</p>
+    <ul class="stack revelar"><li>WhatsApp (Z-API)</li><li>WhatsApp Cloud API (Meta)</li><li>Telegram</li><li>CENTI</li><li>MinIO</li><li>OpenTelemetry</li><li>Axiom</li><li>Cloudflare Tunnel</li></ul>
+
+    <h2 class="revelar">Desafios técnicos</h2>
+
+    <div class="desafio revelar">
+      <h3>Um robô que não pode encerrar quem ainda está falando</h3>
+      <p>O motor de fluxo é uma máquina de estados persistida, com turno de execução, orçamento de saltos por turno (para conter um grafo em laço publicado por engano) e timers disparados por cron. O ponto difícil é o timer de inatividade: no momento do disparo ele <strong>revalida a própria razão de existir</strong>, comparando a última atividade da conversa contra a marca salva no agendamento. Assim o atendimento nunca é encerrado com a pessoa ainda escrevendo, mesmo que o cancelamento explícito do timer falhe — a revalidação é a rede primária, não o plano B. Um índice único parcial impede duas execuções vivas do mesmo robô para o mesmo cidadão, e uma rotina diária destrava as que travaram.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>HTTP 200 que não significa entregue</h3>
+      <p>O provedor não-oficial de WhatsApp pode responder 200 com um id de mensagem e nunca entregar nada — foi o que aconteceu num incidente real: dez mensagens gravadas como enviadas que não chegaram a lugar nenhum. A regra passou a ser <strong>sem prova de entrega, o estado é FALHA</strong>: id externo vazio é tratado como falha mesmo sem exceção lançada. A ambiguidade entre telefone e LID é resolvida em cascata — o caminho barato primeiro, o caro só como fallback, com cache por canal.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>A mesma pessoa em duas conversas</h3>
+      <p>O WhatsApp identifica o mesmo interlocutor ora pelo telefone, ora por um identificador interno (LID). Tratar os dois como threads separadas produziu o sintoma relatado como <strong>conversa partida ao meio</strong>. A correção combina dois índices únicos por canal — telefone e LID — com uma chave de idempotência de mensagem por organização, para que o mesmo evento do provedor não seja processado duas vezes quando chega por caminhos diferentes.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Isolamento que não depende de disciplina</h3>
+      <p>Numa plataforma onde cada município é um tenant, um <code>where</code> esquecido vaza dado de uma prefeitura para outra. A guarda é uma extensão do Prisma que injeta o filtro em toda query, e uma suíte de testes que <strong>tenta furar a própria guarda</strong> — foi assim que apareceram o <code>select</code> que omitia o campo de tenant e deixava a verificação comparar contra <code>undefined</code>, e a leitura aninhada por <code>include</code> que escapava da extensão.</p>
+    </div>
+
+    <h2 class="revelar">Telas</h2>
+    <p class="revelar">Prints do sistema em funcionamento.</p>
+    <div class="galeria">
+      <figure>
+        <a href="../assets/prints/af-login.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/af-login.png" alt="Tela de entrada" loading="lazy">
+        </a>
+        <figcaption>Tela de entrada</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/af-conversas.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/af-conversas.png" alt="Conversas — chats, fila, grupos e contatos" loading="lazy">
+        </a>
+        <figcaption>Conversas — chats, fila, grupos e contatos</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/af-kanban.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/af-kanban.png" alt="Quadro de chamados por protocolo" loading="lazy">
+        </a>
+        <figcaption>Quadro de chamados por protocolo</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/af-setores.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/af-setores.png" alt="Setores e roteamento por departamento" loading="lazy">
+        </a>
+        <figcaption>Setores e roteamento por departamento</figcaption>
+      </figure>
+      <figure>
+        <a href="../assets/prints/af-mensagens.png" target="_blank" rel="noopener">
+          <img src="../assets/prints/af-mensagens.png" alt="Respostas rápidas por organização" loading="lazy">
+        </a>
+        <figcaption>Respostas rápidas por organização</figcaption>
+      </figure>
+    </div>
+
+    <div class="nav-projetos">
+      <a class="btn" href="../index.html#projetos">
+        <svg class="ico" style="transform:rotate(180deg)"><use href="#i-seta"/></svg>
+        Todos os projetos
+      </a>
+      <a class="btn btn-primario" href="alcance.html">
+        Alcance
+        <svg class="ico"><use href="#i-seta"/></svg>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Carlos Henrique · Ceres, Goiás</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
