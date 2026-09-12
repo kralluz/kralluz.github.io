@@ -30,6 +30,14 @@ ALVOS = {
         (108, 310, 520, 690),    # avatares, nomes e numeros dos contatos
     ],
     # Alcance — a trilha de auditoria mostra nome e e-mail corporativo de quem operou
+    # GetMoto — placa de veiculo identifica o proprietario (dado pessoal sob GDPR)
+    'gm-veiculos.png': [
+        (482, 388, 140, 610),    # coluna Placa
+    ],
+    'gm-ordens.png': [
+        (632, 462, 180, 535),    # coluna Cliente (a placa e o identificador)
+        (822, 462, 240, 535),    # coluna Veiculo (repete a placa no subtexto)
+    ],
     'alc-contratos.png': [
         (280, 205, 480, 360),    # coluna Cliente (razao social de clientes reais)
     ],

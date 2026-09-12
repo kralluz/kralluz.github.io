@@ -573,9 +573,11 @@ PROJETOS = [
         "desafio": "Quem ia usar o sistema estava acostumado com caderno. A interface precisava ser "
                    "mais rápida que escrever à mão — senão o caderno vence.",
         "prints": [
-            "Ordem de serviço",
-            "Controle de estoque",
-            "Fluxo de caixa",
+            ("gm-financeiro.png", "Dashboard financeiro — saldo, entradas, saídas e fluxo de caixa"),
+            ("gm-ordens.png", "Ordens de serviço com veículo, descrição e profissional"),
+            ("gm-servicos.png", "Catálogo de serviços com custo unitário"),
+            ("gm-veiculos.png", "Veículos cadastrados — marca, modelo, odômetro e ordens vinculadas"),
+            ("gm-estoque.png", "Relatório de estoque com inventário e movimentações"),
         ],
     },
 ]
