@@ -406,8 +406,13 @@ PROJETOS = [
                   "e fecha cada mês num retrato que não muda depois. Funciona sem internet e "
                   "sincroniza quando a conexão volta.",
         "papel": "Desenvolvimento full stack e publicação nas lojas",
-        "periodo": "2026 — publicação em andamento",
-        "situacao": "Em lançamento",
+        "periodo": "2026 — no ar",
+        "situacao": "Publicado na Play Store",
+        "loja": {
+            "url": "https://play.google.com/store/apps/details?id=com.distribuicao_financeira.app&amp;hl=pt_BR",
+            "selo": "Disponível agora para Android",
+            "nome": "Baixar no Google Play",
+        },
         "stack": ["TypeScript", "React Native 0.81", "Expo SDK 54", "NestJS 11", "Prisma 7",
                   "PostgreSQL", "SQLite", "Zod", "Sentry", "Google Play Billing"],
         "numeros": [
@@ -517,9 +522,11 @@ PROJETOS = [
              "mais recente feita no outro."),
         ],
         "prints": [
-            "Dashboard do mês",
-            "Configuração de rateio percentual",
-            "Controle de dívidas",
+            ("df-inicio.jpg", "Início — renda do mês e regra de distribuição por categoria"),
+            ("df-despesas.jpg", "Despesas essenciais com vencimento e status"),
+            ("df-dividas.jpg", "Dívidas — parcelas pagas, saldo e alerta de estouro"),
+            ("df-nova-divida.jpg", "Nova dívida: parcela, quantidade, vencimento e recorrência"),
+            ("df-notificacoes.jpg", "Preferências de aviso — antecedência e horário"),
         ],
     },
     {
@@ -807,7 +814,7 @@ MODELO = """<!doctype html>
     <span class="etiqueta">{etiqueta}</span>
     <h1 class="revelar">{nome}</h1>
     <p class="projeto-resumo revelar" data-atraso="80">{resumo}</p>
-    <ul class="stack revelar" data-atraso="140">{stack_html}</ul>
+{loja_html}    <ul class="stack revelar" data-atraso="140">{stack_html}</ul>
 
     <div class="fatos revelar" data-atraso="200">
       <div class="fato"><span>Papel</span><strong>{papel}</strong></div>
@@ -884,6 +891,26 @@ def gerar():
         # cada print vira uma figura com espaco reservado ate a imagem existir.
         # para publicar: troque o div.vaga-print por <img src="../assets/nome.png" alt="...">
         # --- blocos opcionais: so aparecem se o projeto tiver os dados ---
+        # bloco de loja: so aparece nos projetos publicados
+        loja_html = ''
+        if p.get('loja'):
+            loja = p['loja']
+            loja_html = f'''
+    <a class="loja revelar" data-atraso="110" href="{loja['url']}" target="_blank" rel="noopener">
+      <svg class="loja-ico" viewBox="0 0 512 512" aria-hidden="true">
+        <path fill="#00d0ff" d="M47 19a24 24 0 0 0-13 21v432a24 24 0 0 0 13 21l236-237z"/>
+        <path fill="#00f076" d="M47 19a24 24 0 0 1 25 1l269 154-58 58z"/>
+        <path fill="#fd0" d="M341 174l70 40c22 13 22 43 0 56l-70 40-58-58z"/>
+        <path fill="#f53" d="M72 492a24 24 0 0 1-25 1l236-237 58 58z"/>
+      </svg>
+      <span class="loja-txt">
+        <small>{loja['selo']}</small>
+        <strong>{loja['nome']}</strong>
+      </span>
+      <svg class="ico loja-seta"><use href="#i-seta"/></svg>
+    </a>
+'''
+
         numeros_html = ''
         if p.get('numeros'):
             cartoes = ''.join(f'''
@@ -972,6 +999,7 @@ def gerar():
             solucao_html=solucao_html,
             desafios_html=desafios_html,
             numeros_html=numeros_html,
+            loja_html=loja_html,
             modulos_html=modulos_html,
             arquitetura_html=arquitetura_html,
             integracoes_html=integracoes_html,
