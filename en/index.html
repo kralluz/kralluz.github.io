@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Henrique — Full Stack Developer</title>
+<meta name="description" content="Full stack developer and systems architect. Public-health indicator dashboards, citizen-service platforms for city halls and management systems in production.">
+<link rel="canonical" href="https://kralluz.github.io/en/">
+<link rel="alternate" hreflang="pt-BR" href="https://kralluz.github.io/">
+<link rel="alternate" hreflang="en" href="https://kralluz.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://kralluz.github.io/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Carlos Henrique">
+<meta name="keywords" content="full stack developer, TypeScript, React, NestJS, Prisma, PostgreSQL, React Native, govtech, public health software, multi-tenant, Brazil, remote">
+
+<!-- compartilhamento: WhatsApp, LinkedIn, Slack, Telegram, X -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Carlos Henrique">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:title" content="Carlos Henrique — Full Stack Developer">
+<meta property="og:description" content="Full stack developer and systems architect. Public-health indicator dashboards, citizen-service platforms for city halls and management systems in production.">
+<meta property="og:url" content="https://kralluz.github.io/en/">
+<meta property="og:image" content="https://kralluz.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Carlos Henrique — Full Stack Developer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carlos Henrique — Full Stack Developer">
+<meta name="twitter:description" content="Full stack developer and systems architect. Public-health indicator dashboards, citizen-service platforms for city halls and management systems in production.">
+<meta name="twitter:image" content="https://kralluz.github.io/assets/og.png">
+
+<link rel="icon" href="../assets/perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://kralluz.github.io/#carlos",
+      "name": "Carlos Henrique",
+      "alternateName": "kralluz",
+      "jobTitle": "Full Stack Developer",
+      "description": "Full stack developer and systems architect. Builds public-health indicator dashboards, citizen-service platforms for city halls and financial management systems in production.",
+      "url": "https://kralluz.github.io/en/",
+      "image": "https://kralluz.github.io/assets/perfil.jpg",
+      "sameAs": [
+        "https://github.com/kralluz",
+        "https://www.linkedin.com/in/carlosklz/",
+        "https://www.instagram.com/klz.carlos/"
+      ],
+      "knowsLanguage": ["pt-BR", "en"],
+      "knowsAbout": [
+        "TypeScript", "React", "React Native", "Node.js", "NestJS", "Express",
+        "Prisma", "PostgreSQL", "Expo", "Docker", "multi-tenant architecture",
+        "financial systems", "digital public health", "govtech"
+      ],
+      "alumniOf": [
+        { "@type": "EducationalOrganization", "name": "Kenzie Academy Brasil" },
+        { "@type": "EducationalOrganization", "name": "Instituto Federal Goiano" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kralluz.github.io/en/#site",
+      "url": "https://kralluz.github.io/en/",
+      "name": "Carlos Henrique — Portfolio",
+      "description": "Full stack developer and systems architect. Public-health indicator dashboards, citizen-service platforms for city halls and management systems in production.",
+      "inLanguage": "en",
+      "author": { "@id": "https://kralluz.github.io/#carlos" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://kralluz.github.io/en/#pagina",
+      "url": "https://kralluz.github.io/en/",
+      "name": "Carlos Henrique — Full Stack Developer",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://kralluz.github.io/en/#site" },
+      "about": { "@id": "https://kralluz.github.io/#carlos" },
+      "hasPart": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Saude Brasil 360",
+          "url": "https://kralluz.github.io/en/projects/saude-brasil-360.html",
+          "description": "Calculates and proves the primary-care indicators required by the Brazilian Ministry of Health from each city hall's electronic health record.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Atende Facil",
+          "url": "https://kralluz.github.io/en/projects/atende-facil.html",
+          "description": "Citizen-service platform for city halls: multi-channel WhatsApp, tickets with protocol, Kanban board and a visual service bot.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Alcance",
+          "url": "https://kralluz.github.io/en/projects/alcance.html",
+          "description": "Contract and commission management for a benefits broker, with OCR-based billing import.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Distribuicao Financeira",
+          "url": "https://kralluz.github.io/en/projects/distribuicao-financeira.html",
+          "description": "Offline-first Android personal budgeting app, published on Google Play.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Android",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Eventa Pro",
+          "url": "https://kralluz.github.io/en/projects/eventa-pro.html",
+          "description": "Running-event sign-up platform with price tiers, payment, QR-code tickets and organiser payouts.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "CRM GetMoto",
+          "url": "https://kralluz.github.io/en/projects/crm-getmoto.html",
+          "description": "Motorcycle workshop management in the United Kingdom: work orders, stock, cash book and payroll.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://kralluz.github.io/#carlos" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+
+<nav class="nav" id="nav">
+  <div class="container nav-interno">
+    <a class="nav-marca" href="#topo">
+      <img src="../assets/perfil.jpg" alt="" width="28" height="28">
+      <span>carlos<em>.</em>klz</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">About</a></li>
+      <li><a href="#projetos">Projects</a></li>
+      <li><a href="#metodo">Method</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contato">Contact</a></li>
+      <li><a class="troca-idioma" href="../" hreflang="pt-BR">PT</a></li>
+    </ul>
+  </div>
+  <div class="nav-progresso" id="progresso"></div>
+</nav>
+
+<!-- ícones SVG reutilizáveis: definidos uma vez, usados com <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.834 2.81 1.304 3.5.997.11-.776.42-1.305.76-1.605-2.67-.3-5.47-1.335-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12.01 12.01 0 0024 12.5C24 5.87 18.63.5 12 .5z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+  </symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+  </symbol>
+</svg>
+
+
+<!-- ==================== TOPO ==================== -->
+<header class="hero" id="topo">
+  <div class="container hero-grid">
+
+    <div class="hero-texto revelar">
+      <p class="hero-sup">Available for remote work</p>
+      <h1>Carlos Henrique</h1>
+      <p class="hero-cargo">Full Stack Developer · Systems architect</p>
+      <p class="hero-frase">
+        From the database to the layout. I turn noise into numbers, and numbers into decisions.
+      </p>
+
+      <div class="hero-acoes">
+        <a class="btn btn-primario" href="#projetos">
+          See projects
+          <svg class="ico"><use href="#i-seta"/></svg>
+        </a>
+        <a class="btn" href="https://github.com/kralluz" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-github"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/carlosklz/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-linkedin"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-foto revelar" data-atraso="150">
+      <div class="foto-moldura">
+        <img src="../assets/perfil.jpg" alt="Carlos Henrique" width="230" height="230">
+      </div>
+      <span class="ponto-status" title="Available for work"></span>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- ==================== NÚMEROS ==================== -->
+  <section class="faixa-numeros">
+    <div class="container numeros">
+      <div class="numero revelar">
+        <strong data-contar="5416">0</strong>
+        <span>commits</span>
+      </div>
+      <div class="numero revelar" data-atraso="100">
+        <strong data-contar="3818">0</strong>
+        <span>contributions in the last year</span>
+      </div>
+      <div class="numero revelar" data-atraso="200">
+        <strong data-contar="57" data-sufixo="%">0</strong>
+        <span>of repositories in TypeScript</span>
+      </div>
+      <div class="numero revelar" data-atraso="300">
+        <strong data-contar="6">0</strong>
+        <span>products in production</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SOBRE ==================== -->
+  <section class="secao" id="sobre">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">01</span>About</h2>
+      <div class="sobre-grid">
+        <div class="revelar">
+          <p>
+            I build products that run in production and get used every day — public-health indicator
+            dashboards across dozens of municipalities, citizen-service platforms sold to city
+            halls, and financial and contract management systems.
+          </p>
+          <p>
+            I work across every layer: database modelling, API, frontend, mobile and deployment.
+            What interests me is not the pretty screen on its own, it is the whole path — from
+            the raw record arriving out of a government system to the decision someone makes
+            looking at a number.
+          </p>
+        </div>
+        <ul class="lista-marcada revelar" data-atraso="120">
+          <li>Full Stack programme at <strong>Kenzie Academy Brasil</strong> (2023)</li>
+          <li>BSc in <strong>Information Systems</strong> — Instituto Federal Goiano</li>
+          <li>Integration with <strong>Brazilian public-health systems</strong></li>
+          <li>Institutional systems for healthcare and public administration</li>
+          <li>TypeScript end to end</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section class="secao secao-alt" id="projetos">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">02</span>Projects</h2>
+      <p class="secao-sub revelar">
+        Products in production. Most of them live in private client repositories.
+      </p>
+
+      <div class="projetos">
+
+        <a class="projeto revelar" href="projects/saude-brasil-360.html">
+          <span class="projeto-num">01</span>
+          <div class="projeto-topo">
+            <h3>Saúde Brasil 360</h3>
+            <span class="etiqueta">public health</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> federal primary-care funding depends on indicators each
+            municipality must calculate and prove — and the data arrived too late, too
+            aggregated.
+          </p>
+          <p>
+            Computes the Ministry of Health's official indicators from each city hall's
+            electronic health record, produces named patient lists for outreach and issues the
+            official public-health billing documents.
+          </p>
+          <p class="mini-numeros">598 endpoints · 92 tables · 30+ modules</p>
+          <ul class="stack"><li>React</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="80" href="projects/atende-facil.html">
+          <span class="projeto-num">02</span>
+          <div class="projeto-topo">
+            <h3>Atende Fácil</h3>
+            <span class="etiqueta">citizen services</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> a citizen messages the city hall's WhatsApp and the request
+            dies inside the conversation — no protocol, no deadline, no owner.
+          </p>
+          <p>
+            Brings the organisation's several WhatsApp numbers, the formal ticket with protocol, a
+            bot built on screen and the portal where citizens track requests without signing in
+            into one panel. Multi-organisation from the ground up, isolated at the database level.
+          </p>
+          <p class="mini-numeros">293 endpoints · 66 tables · 25 modules</p>
+          <ul class="stack"><li>React</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>React Flow</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="160" href="projects/alcance.html">
+          <span class="projeto-num">03</span>
+          <div class="projeto-topo">
+            <h3>Alcance</h3>
+            <span class="etiqueta">commercial management</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> every supplier sends billing in a different layout — Excel,
+            PDF, sometimes a photo of a screen — and someone retypes all of it by hand.
+          </p>
+          <p>
+            An import that reads the file with OCR, learns each supplier's layout and matches every
+            row to the right contract. Splits commission across several reps with cents that add
+            up, and watches the portfolio on its own by email.
+          </p>
+          <p class="mini-numeros">91 endpoints · 26 tables · 15 modules</p>
+          <ul class="stack"><li>React</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>Tesseract</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="240" href="projects/distribuicao-financeira.html">
+          <span class="projeto-num">04</span>
+          <div class="projeto-topo">
+            <h3>Distribuição Financeira</h3>
+            <span class="etiqueta">mobile</span>
+            <span class="selo-loja">On Google Play</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> people who budget in a spreadsheet quit in the third week —
+            and the expense gets entered on the bus, with no signal.
+          </p>
+          <p>
+            An app that splits the month's income across user-defined categories, tracks debts and
+            closes each month into a snapshot that never changes. Works offline and syncs when the
+            connection returns, without duplicating entries.
+          </p>
+          <p class="mini-numeros">73 endpoints · 25 tables · 24 screens</p>
+          <ul class="stack"><li>React Native</li><li>Expo</li><li>NestJS</li><li>Prisma</li><li>SQLite</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="320" href="projects/eventa-pro.html">
+          <span class="projeto-num">05</span>
+          <div class="projeto-topo">
+            <h3>Eventa Pro</h3>
+            <span class="etiqueta">events</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> race organisers run sign-ups through a form and take payment
+            by hand — no ticket, no seat control, checking names on printed paper at the start
+            line.
+          </p>
+          <p>
+            Date-based price tiers, coupons, payment by instant transfer or card, and a QR-code
+            ticket for check-in. After the race, results and certificate. The seat is held inside
+            a transaction, so two people never take the last one.
+          </p>
+          <p class="mini-numeros">143 endpoints · 19 tables · 71 screens</p>
+          <ul class="stack"><li>React 19</li><li>NestJS</li><li>Prisma</li><li>PostgreSQL</li><li>Tailwind</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+        <a class="projeto revelar" data-atraso="400" href="projects/crm-getmoto.html">
+          <span class="projeto-num">06</span>
+          <div class="projeto-topo">
+            <h3>CRM GetMoto</h3>
+            <span class="etiqueta">management</span>
+          </div>
+          <p class="projeto-problema">
+            <strong>The problem:</strong> work orders, stock and payroll in separate places, none of
+            them talking to the cash book — nobody knew what the month actually closed at.
+          </p>
+          <p>
+            Motorcycle workshop management running in the United Kingdom. The work order adds parts
+            and labour, deducts stock and posts to the cash book in the same transaction; payroll
+            computes overtime and advances in whole pence, with no rounding.
+          </p>
+          <p class="mini-numeros">96 endpoints · 18 tables · 19 modules</p>
+          <ul class="stack"><li>React 19</li><li>TypeScript</li><li>Express</li><li>Prisma</li><li>Ant Design</li></ul>
+          <span class="projeto-link">See details <svg class="ico"><use href="#i-seta"/></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== COMO EU TRABALHO ==================== -->
+  <section class="secao" id="metodo">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">03</span>How I work</h2>
+      <p class="secao-sub revelar">
+        Four decisions no client asked for, repeated across projects that never met each other.
+      </p>
+
+      <div class="metodo">
+
+        <article class="principio revelar">
+          <span class="principio-num">01</span>
+          <h3>Money is never a fractional number</h3>
+          <p>
+            Floating point loses cents, and a wrong cent in payroll is a labour dispute. I store
+            amounts as <strong>integers</strong> and percentages as <strong>basis
+            points</strong>, from the database to the screen.
+          </p>
+          <p class="principio-onde">
+            Cents in Distribuição Financeira and Eventa Pro · pence as BigInt in GetMoto ·
+            basis points in Alcance
+          </p>
+        </article>
+
+        <article class="principio revelar" data-atraso="80">
+          <span class="principio-num">02</span>
+          <h3>The past does not get rewritten</h3>
+          <p>
+            Changing a rule today cannot alter what already closed. The period result is
+            <strong>frozen into an immutable snapshot</strong>, and cancelling posts an opposite
+            entry instead of deleting the original.
+          </p>
+          <p class="principio-onde">
+            Per-period snapshots in Saúde Brasil 360 and Distribuição Financeira · reversal entries
+            in GetMoto · fee frozen at payment time in Eventa Pro
+          </p>
+        </article>
+
+        <article class="principio revelar" data-atraso="160">
+          <span class="principio-num">03</span>
+          <h3>The server does not trust the client</h3>
+          <p>
+            A value arriving from outside is input, not truth. Totals are
+            <strong>recomputed on the server</strong> at write time, and who can see what is
+            resolved from the authenticated user — never from a request parameter.
+          </p>
+          <p class="principio-onde">
+            Recalculation on import confirmation in Alcance · tenant scope in middleware in Atende
+            Fácil · price rebuilt at checkout in Eventa Pro
+          </p>
+        </article>
+
+        <article class="principio revelar" data-atraso="240">
+          <span class="principio-num">04</span>
+          <h3>The rule that cannot fail lives in the database</h3>
+          <p>
+            Under real concurrency, an application-level check loses. One seat, one open ticket per
+            conversation, one live bot execution: the real guarantee is a
+            <strong>transaction, a partial unique index and a trigger</strong>.
+          </p>
+          <p class="principio-onde">
+            Hand-written partial indexes in Atende Fácil · seat hold inside a transaction in Eventa
+            Pro · append-only history through a trigger
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== STACK ==================== -->
+  <section class="secao" id="stack">
+    <div class="container">
+      <h2 class="revelar"><span class="num-secao">04</span>Stack</h2>
+      <p class="secao-sub revelar">What I actually use day to day, not a list of everything I have seen.</p>
+
+      <div class="stack-grid">
+        <div class="stack-bloco revelar">
+          <h3>Language</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/typescript.svg" alt="" width="28" height="28" loading="lazy">
+              TypeScript
+            </li>
+            <li>
+              <img src="../assets/tec/javascript.svg" alt="" width="28" height="28" loading="lazy">
+              JavaScript
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="70">
+          <h3>Frontend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React
+            </li>
+            <li>
+              <img src="../assets/tec/vite.svg" alt="" width="28" height="28" loading="lazy">
+              Vite
+            </li>
+            <li>
+              <img src="../assets/tec/nextjs.svg" alt="" width="28" height="28" loading="lazy">
+              Next.js
+            </li>
+            <li>
+              <img src="../assets/tec/antdesign.svg" alt="" width="28" height="28" loading="lazy">
+              Ant Design
+            </li>
+            <li>
+              <img src="../assets/tec/reactquery.svg" alt="" width="28" height="28" loading="lazy">
+              TanStack Query
+            </li>
+            <li>
+              <img src="../assets/tec/tailwind.svg" alt="" width="28" height="28" loading="lazy">
+              TailwindCSS
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="140">
+          <h3>Backend</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/nodejs.svg" alt="" width="28" height="28" loading="lazy">
+              Node.js
+            </li>
+            <li>
+              <img src="../assets/tec/nestjs.svg" alt="" width="28" height="28" loading="lazy">
+              NestJS
+            </li>
+            <li>
+              <img src="../assets/tec/express.svg" alt="" width="28" height="28" loading="lazy">
+              Express
+            </li>
+            <li>
+              <img src="../assets/tec/prisma.svg" alt="" width="28" height="28" loading="lazy">
+              Prisma
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="210">
+          <h3>Mobile</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/react.svg" alt="" width="28" height="28" loading="lazy">
+              React Native
+            </li>
+            <li>
+              <img src="../assets/tec/expo.svg" alt="" width="28" height="28" loading="lazy">
+              Expo
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="280">
+          <h3>Data</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/postgresql.svg" alt="" width="28" height="28" loading="lazy">
+              PostgreSQL
+            </li>
+          </ul>
+        </div>
+        <div class="stack-bloco revelar" data-atraso="350">
+          <h3>Testing &amp; Infra</h3>
+          <ul class="stack stack-icones">
+            <li>
+              <img src="../assets/tec/vitest.svg" alt="" width="28" height="28" loading="lazy">
+              Vitest
+            </li>
+            <li>
+              <img src="../assets/tec/jest.svg" alt="" width="28" height="28" loading="lazy">
+              Jest
+            </li>
+            <li>
+              <img src="../assets/tec/docker.svg" alt="" width="28" height="28" loading="lazy">
+              Docker
+            </li>
+            <li>
+              <img src="../assets/tec/vercel.svg" alt="" width="28" height="28" loading="lazy">
+              Vercel
+            </li>
+            <li>
+              <img src="../assets/tec/jwt.svg" alt="" width="28" height="28" loading="lazy">
+              JWT
+            </li>
+            <li>
+              <img src="../assets/tec/swagger.svg" alt="" width="28" height="28" loading="lazy">
+              Swagger
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CONTATO ==================== -->
+  <section class="secao secao-alt" id="contato">
+    <div class="container centro">
+      <h2 class="revelar"><span class="num-secao">05</span>Let us talk</h2>
+      <p class="secao-sub revelar">Available for projects and opportunities. I reply quickly.</p>
+      <div class="hero-acoes centralizado revelar" data-atraso="100">
+        <a class="btn btn-primario" href="https://www.linkedin.com/in/carlosklz/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-linkedin"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="https://github.com/kralluz" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-github"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.instagram.com/klz.carlos/" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-instagram"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Carlos Henrique · Full Stack Developer</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -552,3 +552,34 @@
   .fatos { grid-template-columns: 1fr; gap: 14px; }
   .fato:first-child { grid-column: auto; }
 }
+
+
+/* ---------------------- troca de idioma ---------------------- */
+.topo-acoes {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.troca-idioma {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 40px;
+  padding: 0 10px;
+  font-family: var(--fonte-mono);
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  color: var(--texto-fraco);
+  text-decoration: none;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  transition: color .18s, border-color .18s, background .18s;
+}
+
+.troca-idioma:hover {
+  color: var(--destaque);
+  border-color: var(--destaque-esc);
+  background: var(--cartao);
+}

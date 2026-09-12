@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distribuição Financeira — Carlos Henrique</title>
+<meta name="description" content="Personal budgeting app: it splits the month's income across categories the user defines, tracks debts and household bills, and closes each month into a snapshot that never changes afterwards. Works offline and syncs when the connection comes back.">
+<link rel="canonical" href="https://kralluz.github.io/en/projects/distribuicao-financeira.html">
+<link rel="alternate" hreflang="pt-BR" href="https://kralluz.github.io/projetos/distribuicao-financeira.html">
+<link rel="alternate" hreflang="en" href="https://kralluz.github.io/en/projects/distribuicao-financeira.html">
+<link rel="alternate" hreflang="x-default" href="https://kralluz.github.io/projetos/distribuicao-financeira.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Carlos Henrique">
+
+<!-- compartilhamento: WhatsApp, LinkedIn, Slack, Telegram, X -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Carlos Henrique">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Distribuição Financeira — Carlos Henrique">
+<meta property="og:description" content="Personal budgeting app: it splits the month's income across categories the user defines, tracks debts and household bills, and closes each month into a snapshot that never changes afterwards. Works offline and syncs when the connection comes back.">
+<meta property="og:url" content="https://kralluz.github.io/en/projects/distribuicao-financeira.html">
+<meta property="og:image" content="https://kralluz.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Distribuição Financeira — Carlos Henrique">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Distribuição Financeira — Carlos Henrique">
+<meta name="twitter:description" content="Personal budgeting app: it splits the month's income across categories the user defines, tracks debts and household bills, and closes each month into a snapshot that never changes afterwards. Works offline and syncs when the connection comes back.">
+<meta name="twitter:image" content="https://kralluz.github.io/assets/og.png">
+
+<link rel="icon" href="../../assets/perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../projetos/projeto.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Distribuição Financeira",
+  "description": "Personal budgeting app: it splits the month's income across categories the user defines, tracks debts and household bills, and closes each month into a snapshot that never changes afterwards. Works offline and syncs when the connection comes back.",
+  "url": "https://kralluz.github.io/en/projects/distribuicao-financeira.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Carlos Henrique",
+    "url": "https://kralluz.github.io",
+    "jobTitle": "Full Stack Developer",
+    "sameAs": [
+      "https://github.com/kralluz",
+      "https://www.linkedin.com/in/carlosklz/"
+    ]
+  },
+  "softwareRequirements": "TypeScript, React Native 0.81, Expo SDK 54, NestJS 11, Prisma 7, PostgreSQL, SQLite, Zod, Sentry, Google Play Billing",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.distribuicao_financeira.app&hl=en",
+  "offers": {
+    "@type": "Offer",
+    "category": "subscription"
+  }
+}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+<div class="topo-fixo">
+  <div class="container">
+    <a class="voltar" href="../index.html#projetos">
+      <svg class="ico"><use href="#i-seta"/></svg>
+      All projects
+    </a>
+    <span class="topo-acoes">
+      <a class="troca-idioma" href="../../projetos/distribuicao-financeira.html" hreflang="pt-BR">PT</a>
+      <a class="btn" href="../index.html#contato">Contact</a>
+    </span>
+  </div>
+</div>
+
+<header class="projeto-hero">
+  <div class="container">
+    <span class="etiqueta">mobile</span>
+    <h1 class="revelar">Distribuição Financeira</h1>
+    <p class="projeto-resumo revelar" data-atraso="80">Personal budgeting app: it splits the month's income across categories the user defines, tracks debts and household bills, and closes each month into a snapshot that never changes afterwards. Works offline and syncs when the connection comes back.</p>
+
+    <a class="loja revelar" data-atraso="110" href="https://play.google.com/store/apps/details?id=com.distribuicao_financeira.app&amp;hl=en" target="_blank" rel="noopener">
+      <svg class="loja-ico" viewBox="0 0 512 512" aria-hidden="true">
+        <path fill="#00d0ff" d="M47 19a24 24 0 0 0-13 21v432a24 24 0 0 0 13 21l236-237z"/>
+        <path fill="#00f076" d="M47 19a24 24 0 0 1 25 1l269 154-58 58z"/>
+        <path fill="#fd0" d="M341 174l70 40c22 13 22 43 0 56l-70 40-58-58z"/>
+        <path fill="#f53" d="M72 492a24 24 0 0 1-25 1l236-237 58 58z"/>
+      </svg>
+      <span class="loja-txt">
+        <small>Available now for Android</small>
+        <strong>Get it on Google Play</strong>
+      </span>
+      <svg class="ico loja-seta"><use href="#i-seta"/></svg>
+    </a>
+    <ul class="stack revelar" data-atraso="140"><li>TypeScript</li><li>React Native 0.81</li><li>Expo SDK 54</li><li>NestJS 11</li><li>Prisma 7</li><li>PostgreSQL</li><li>SQLite</li><li>Zod</li><li>Sentry</li><li>Google Play Billing</li></ul>
+
+    <div class="fatos revelar" data-atraso="200">
+      <div class="fato"><span>Role</span><strong>Full stack development and store release</strong></div>
+      <div class="fato"><span>Period</span><strong>2026 — live</strong></div>
+      <div class="fato"><span>Status</span><strong>Published on Google Play</strong></div>
+    </div>
+  </div>
+</header>
+
+<main class="conteudo">
+  <div class="container">
+
+    <div class="numeros-projeto revelar">
+        <div class="num-cartao">
+          <strong data-contar="51.7" data-decimais="1" data-sufixo="k">51.7k</strong>
+          <span>lines of code</span>
+        </div>
+        <div class="num-cartao">
+          <strong data-contar="73">73</strong>
+          <span>API endpoints</span>
+        </div>
+        <div class="num-cartao">
+          <strong data-contar="25">25</strong>
+          <span>database tables</span>
+        </div>
+        <div class="num-cartao">
+          <strong data-contar="27">27</strong>
+          <span>migrations</span>
+        </div>
+        <div class="num-cartao">
+          <strong data-contar="24">24</strong>
+          <span>app screens</span>
+        </div>
+        <div class="num-cartao">
+          <strong data-contar="105">105</strong>
+          <span>test files</span>
+        </div>
+    </div>
+
+
+    <h2 class="revelar">The problem</h2>
+    <div class="destaque revelar" data-atraso="60">
+      <p>People who try to organise their finances in a spreadsheet quit in the third week. What is missing is a simple place to <strong>split income</strong> by category, follow what is already paid and see what is left — without turning into accounting. And the app has to work <strong>in a lift, on a bus, with no signal</strong>, because that is where the expense actually gets entered.</p>
+    </div>
+
+    <h2 class="revelar">What was built</h2>
+    <ul class="entregas revelar" data-atraso="60">
+      <li><strong>Percentage split</strong> of income across 6 fixed categories and up to 4 the user creates, adding up to 100%</li>
+      <li><strong>Works offline</strong>: the entry lands immediately and uploads itself when the connection returns</li>
+      <li>Debts with <strong>three growth rules</strong> — fixed instalment, fixed monthly increment or compound interest</li>
+      <li><strong>Frozen monthly close</strong> — changing a percentage today does not rewrite last month</li>
+      <li><strong>Recurring rules</strong> that repeat each cycle without re-entry</li>
+      <li>Subscription through Google Play, with a free trial and renewal handled by webhook</li>
+    </ul>
+
+    <h2 class="revelar">Modules</h2>
+    <p class="revelar">Eighteen modules, from onboarding to offline sync and billing.</p>
+    <div class="modulos">
+      <div class="grupo-modulo revelar">
+        <h3>Budget</h3>
+        <ul><li>Multiple distributions (personal and business)</li><li>Percentage split configuration</li><li>Custom categories</li><li>Monthly dashboard</li><li>History of closed months</li><li>Recurring rules</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Entries</h3>
+        <ul><li>Household bills</li><li>Instalment-based extra income</li><li>Debts and payments</li><li>Early settlement</li><li>Shopping list with budget</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Platform</h3>
+        <ul><li>Offline-first synchronisation</li><li>Pending operation queue</li><li>Sync failure screen</li><li>Device error reporting</li><li>Notification preferences</li></ul>
+      </div>
+      <div class="grupo-modulo revelar">
+        <h3>Account and billing</h3>
+        <ul><li>Authentication and password recovery</li><li>Question-based onboarding</li><li>Google Play subscription</li><li>Data export (privacy law)</li><li>Scheduled account deletion</li></ul>
+      </div>
+    </div>
+
+    <h2 class="revelar">Architecture</h2>
+    <ul class="entregas revelar">
+      <li><strong>Monorepo</strong> with an independent NestJS API and Expo app, linked by types generated from the API's OpenAPI spec</li>
+      <li>Backend with <strong>global guards</strong> — authentication, distribution scope, trial control and rate limiting live outside the controllers</li>
+      <li>Validation through <strong>Zod</strong> instead of class-validator, with the same schema serving as DTO and as documentation</li>
+      <li>App built on <strong>Expo Router</strong>, Context API and a local SQLite layer in the <strong>outbox</strong> pattern</li>
+      <li><strong>Idempotent writes</strong>: every operation carries its own id, and a replay returns the same response instead of duplicating the entry</li>
+      <li><strong>Optimistic concurrency</strong> through a <code>version</code> field on syncable entities</li>
+      <li>Money as <strong>integer cents</strong> and percentages as basis points — never floating point, anywhere in the schema</li>
+      <li>Scheduled jobs to materialise the monthly cycle, execute deletions and purge old data</li>
+    </ul>
+
+    <h2 class="revelar">Integrations</h2>
+    <p class="revelar">External systems the product talks to.</p>
+    <ul class="stack revelar"><li>Google Play Billing</li><li>Pub/Sub RTDN</li><li>Brevo (e-mail)</li><li>Sentry</li><li>Expo</li><li>Maestro</li><li>Scalar</li><li>SQLite</li></ul>
+
+    <h2 class="revelar">Technical challenges</h2>
+
+    <div class="desafio revelar">
+      <h3>The app has to work with no signal</h3>
+      <p>Logging an expense takes thirty seconds and almost always happens away from wifi. The app writes locally to SQLite and queues the mutation in an <strong>outbox</strong> with its own id, retry count and backoff; the backend stores the result of the first execution and returns the same response if the operation arrives again. Reconciliation is not one single rule: <strong>server wins by default</strong>, client wins for expenses and extra income, and shopping-list items are merged — with the option to undo an automatic adjustment the user did not want.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>A closed month cannot change</h3>
+      <p>A month's distribution base — salary plus extra income received — has to be computed, frozen and never touched again, even if the user changes the percentages in January. Solved with an <strong>immutable snapshot</strong> materialised exactly once per distribution and month through an idempotent upsert, plus a cycle record that stops the close from running twice.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Three different debts in one record</h3>
+      <p>A debt can carry a fixed instalment, a fixed monthly increment in cents, or compound monthly interest in basis points. Three distinct financial behaviours in the same model, and only one can be active at a time — a rule <strong>the schema enforces</strong>, not the application code.</p>
+    </div>
+    <div class="desafio revelar">
+      <h3>Two devices, the same account</h3>
+      <p>A user can have more than one distribution and use the app on more than one phone. A dedicated guard resolves which distribution is in use on each request, and a <code>version</code> field on nearly every syncable entity stops a late write from one device from <strong>silently overwriting</strong> a newer change made on the other.</p>
+    </div>
+
+    <h2 class="revelar">Screens</h2>
+    <p class="revelar">Screenshots of the system in use.</p>
+    <div class="galeria">
+      <figure>
+        <a href="../../assets/prints/df-inicio.jpg" target="_blank" rel="noopener">
+          <img src="../../assets/prints/df-inicio.jpg" alt="Home — monthly income and distribution rule by category" loading="lazy">
+        </a>
+        <figcaption>Home — monthly income and distribution rule by category</figcaption>
+      </figure>
+      <figure>
+        <a href="../../assets/prints/df-despesas.jpg" target="_blank" rel="noopener">
+          <img src="../../assets/prints/df-despesas.jpg" alt="Household bills with due date and status" loading="lazy">
+        </a>
+        <figcaption>Household bills with due date and status</figcaption>
+      </figure>
+      <figure>
+        <a href="../../assets/prints/df-dividas.jpg" target="_blank" rel="noopener">
+          <img src="../../assets/prints/df-dividas.jpg" alt="Debts — instalments paid, balance and overspend warning" loading="lazy">
+        </a>
+        <figcaption>Debts — instalments paid, balance and overspend warning</figcaption>
+      </figure>
+      <figure>
+        <a href="../../assets/prints/df-nova-divida.jpg" target="_blank" rel="noopener">
+          <img src="../../assets/prints/df-nova-divida.jpg" alt="New debt: instalment, count, due day and recurrence" loading="lazy">
+        </a>
+        <figcaption>New debt: instalment, count, due day and recurrence</figcaption>
+      </figure>
+      <figure>
+        <a href="../../assets/prints/df-notificacoes.jpg" target="_blank" rel="noopener">
+          <img src="../../assets/prints/df-notificacoes.jpg" alt="Alert preferences — lead time and delivery hour" loading="lazy">
+        </a>
+        <figcaption>Alert preferences — lead time and delivery hour</figcaption>
+      </figure>
+    </div>
+
+    <div class="nav-projetos">
+      <a class="btn" href="../index.html#projetos">
+        <svg class="ico" style="transform:rotate(180deg)"><use href="#i-seta"/></svg>
+        All projects
+      </a>
+      <a class="btn btn-primario" href="eventa-pro.html">
+        Eventa Pro
+        <svg class="ico"><use href="#i-seta"/></svg>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Carlos Henrique · Full Stack Developer</p>
+  </div>
+</footer>
+
+<script src="../../script.js"></script>
+</body>
+</html>

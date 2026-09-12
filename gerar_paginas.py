@@ -1,32 +1,9 @@
-# Gera as paginas de detalhe dos projetos a partir do dicionario PROJETOS.
+# Conteudo das paginas de projeto em portugues.
+# A traducao para ingles fica em conteudo_en.py e o molde HTML em motor.py.
 # Rode de novo depois de editar qualquer texto aqui: python gerar_paginas.py
 # (as paginas sao sobrescritas, entao edite AQUI, nao no HTML gerado)
 
-import os, io, re
-
-
-def atributos_contador(valor):
-    """Separa o numero do que vem depois dele para o contador do JS.
-
-    "103 mil" -> conta 103, sufixo " mil"
-    "43,8 mil" -> conta 43,8 com uma casa decimal
-    "30+"      -> conta 30, sufixo "+"
-    "293"      -> conta 293
-    Se nao comecar com digito, devolve vazio e o texto fica estatico.
-    """
-    m = re.match(r'^(\d+(?:[.,]\d+)?)(.*)$', valor.strip())
-    if not m:
-        return ''
-    numero, resto = m.group(1), m.group(2)
-    decimais = 0
-    if ',' in numero or '.' in numero:
-        decimais = len(re.split(r'[.,]', numero)[1])
-    attr = f' data-contar="{numero.replace(",", ".")}"'
-    if decimais:
-        attr += f' data-decimais="{decimais}"'
-    if resto:
-        attr += f' data-sufixo="{resto}"'
-    return attr
+import os, io
 
 
 PROJETOS = [
@@ -801,244 +778,39 @@ PROJETOS = [
     },
 ]
 
+# =========================================================================
+#  Geracao
+# =========================================================================
 
-MODELO = """<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{nome} — Carlos Henrique</title>
-<meta name="description" content="{resumo_limpo}">
-<link rel="icon" href="../assets/perfil.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="projeto.css">
-</head>
-<body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 12h14M13 6l6 6-6 6"/>
-  </symbol>
-</svg>
-
-<div class="topo-fixo">
-  <div class="container">
-    <a class="voltar" href="../index.html#projetos">
-      <svg class="ico"><use href="#i-seta"/></svg>
-      Todos os projetos
-    </a>
-    <a class="btn" href="../index.html#contato">Contato</a>
-  </div>
-</div>
-
-<header class="projeto-hero">
-  <div class="container">
-    <span class="etiqueta">{etiqueta}</span>
-    <h1 class="revelar">{nome}</h1>
-    <p class="projeto-resumo revelar" data-atraso="80">{resumo}</p>
-{loja_html}    <ul class="stack revelar" data-atraso="140">{stack_html}</ul>
-
-    <div class="fatos revelar" data-atraso="200">
-      <div class="fato"><span>Papel</span><strong>{papel}</strong></div>
-      <div class="fato"><span>Período</span><strong>{periodo}</strong></div>
-      <div class="fato"><span>Situação</span><strong>{situacao}</strong></div>
-    </div>
-  </div>
-</header>
-
-<main class="conteudo">
-  <div class="container">
-{numeros_html}
-    <h2 class="revelar">O problema</h2>
-    <div class="destaque revelar" data-atraso="60">
-      <p>{problema}</p>
-    </div>
-
-    <h2 class="revelar">O que foi construído</h2>
-    <ul class="entregas revelar" data-atraso="60">{solucao_html}
-    </ul>
-{modulos_html}{arquitetura_html}{integracoes_html}
-    <h2 class="revelar">Desafios técnicos</h2>
-{desafios_html}
-
-    <h2 class="revelar">Telas</h2>
-    <p class="revelar">Prints do sistema em funcionamento.</p>
-    <div class="galeria">{galeria_html}
-    </div>
-
-    <div class="nav-projetos">
-      <a class="btn" href="../index.html#projetos">
-        <svg class="ico" style="transform:rotate(180deg)"><use href="#i-seta"/></svg>
-        Todos os projetos
-      </a>
-      <a class="btn btn-primario" href="{proximo_arquivo}">
-        {proximo_nome}
-        <svg class="ico"><use href="#i-seta"/></svg>
-      </a>
-    </div>
-
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>Carlos Henrique · Ceres, Goiás</p>
-  </div>
-</footer>
-
-<script src="../script.js"></script>
-</body>
-</html>
-"""
+from motor import IDIOMAS, gerar_pagina
+from conteudo_en import PROJETOS_EN
 
 
-def limpa(txt):
-    """tira as tags do texto para usar em atributo meta"""
-    return (txt.replace('<strong>', '').replace('</strong>', '')
-               .replace('"', "'"))
+def mescla(base, traducao):
+    """campo traduzido vence; o que nao foi traduzido cai no portugues"""
+    junto = dict(base)
+    if traducao:
+        junto.update(traducao)
+    return junto
+
+
+def projetos_do_idioma(idioma):
+    if idioma == 'pt':
+        return [dict(p) for p in PROJETOS]
+    return [mescla(p, PROJETOS_EN.get(p['arquivo'])) for p in PROJETOS]
 
 
 def gerar():
-    pasta = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'projetos')
-    os.makedirs(pasta, exist_ok=True)
-
-    for i, p in enumerate(PROJETOS):
-        prox = PROJETOS[(i + 1) % len(PROJETOS)]
-
-        stack_html = ''.join(f'<li>{t}</li>' for t in p['stack'])
-
-        solucao_html = ''.join(
-            f'\n      <li>{item}</li>' for item in p['solucao'])
-
-        # cada print vira uma figura com espaco reservado ate a imagem existir.
-        # para publicar: troque o div.vaga-print por <img src="../assets/nome.png" alt="...">
-        # --- blocos opcionais: so aparecem se o projeto tiver os dados ---
-        # bloco de loja: so aparece nos projetos publicados
-        loja_html = ''
-        if p.get('loja'):
-            loja = p['loja']
-            loja_html = f'''
-    <a class="loja revelar" data-atraso="110" href="{loja['url']}" target="_blank" rel="noopener">
-      <svg class="loja-ico" viewBox="0 0 512 512" aria-hidden="true">
-        <path fill="#00d0ff" d="M47 19a24 24 0 0 0-13 21v432a24 24 0 0 0 13 21l236-237z"/>
-        <path fill="#00f076" d="M47 19a24 24 0 0 1 25 1l269 154-58 58z"/>
-        <path fill="#fd0" d="M341 174l70 40c22 13 22 43 0 56l-70 40-58-58z"/>
-        <path fill="#f53" d="M72 492a24 24 0 0 1-25 1l236-237 58 58z"/>
-      </svg>
-      <span class="loja-txt">
-        <small>{loja['selo']}</small>
-        <strong>{loja['nome']}</strong>
-      </span>
-      <svg class="ico loja-seta"><use href="#i-seta"/></svg>
-    </a>
-'''
-
-        numeros_html = ''
-        if p.get('numeros'):
-            cartoes = ''.join(f'''
-        <div class="num-cartao">
-          <strong{atributos_contador(v)}>{v}</strong>
-          <span>{rot}</span>
-        </div>''' for v, rot in p['numeros'])
-            numeros_html = f'''
-    <div class="numeros-projeto revelar">{cartoes}
-    </div>
-
-'''
-
-        modulos_html = ''
-        if p.get('modulos'):
-            grupos = ''.join(f'''
-      <div class="grupo-modulo revelar">
-        <h3>{grupo}</h3>
-        <ul>{''.join(f"<li>{m}</li>" for m in itens)}</ul>
-      </div>''' for grupo, itens in p['modulos'])
-            modulos_html = f'''
-    <h2 class="revelar">Módulos</h2>
-    <p class="revelar">{p.get('modulos_intro', '')}</p>
-    <div class="modulos">{grupos}
-    </div>
-'''
-
-        arquitetura_html = ''
-        if p.get('arquitetura'):
-            itens = ''.join(f'\n      <li>{a}</li>' for a in p['arquitetura'])
-            arquitetura_html = f'''
-    <h2 class="revelar">Arquitetura</h2>
-    <ul class="entregas revelar">{itens}
-    </ul>
-'''
-
-        integracoes_html = ''
-        if p.get('integracoes'):
-            chips = ''.join(f'<li>{i}</li>' for i in p['integracoes'])
-            integracoes_html = f'''
-    <h2 class="revelar">Integrações</h2>
-    <p class="revelar">Sistemas externos com que o produto conversa.</p>
-    <ul class="stack revelar">{chips}</ul>
-'''
-
-        # desafios: lista de (titulo, texto) ou string unica (formato antigo)
-        if isinstance(p['desafio'], str):
-            desafios_html = f'    <p class="revelar">{p["desafio"]}</p>'
-        else:
-            desafios_html = ''.join(f'''
-    <div class="desafio revelar">
-      <h3>{titulo}</h3>
-      <p>{texto}</p>
-    </div>''' for titulo, texto in p['desafio'])
-
-        # cada print pode ser so a legenda (vaga reservada) ou (arquivo, legenda)
-        figuras = []
-        for item in p['prints']:
-            if isinstance(item, tuple):
-                arq, legenda = item
-                figuras.append(f'''
-      <figure>
-        <a href="../assets/prints/{arq}" target="_blank" rel="noopener">
-          <img src="../assets/prints/{arq}" alt="{legenda}" loading="lazy">
-        </a>
-        <figcaption>{legenda}</figcaption>
-      </figure>''')
-            else:
-                figuras.append(f'''
-      <figure>
-        <div class="vaga-print">adicione aqui:<br>{item}</div>
-        <figcaption>{item}</figcaption>
-      </figure>''')
-        galeria_html = ''.join(figuras)
-
-        html = MODELO.format(
-            nome=p['nome'],
-            etiqueta=p['etiqueta'],
-            resumo=p['resumo'],
-            resumo_limpo=limpa(p['resumo']),
-            papel=p['papel'],
-            periodo=p['periodo'],
-            situacao=p['situacao'],
-            stack_html=stack_html,
-            problema=p['problema'],
-            solucao_html=solucao_html,
-            desafios_html=desafios_html,
-            numeros_html=numeros_html,
-            loja_html=loja_html,
-            modulos_html=modulos_html,
-            arquitetura_html=arquitetura_html,
-            integracoes_html=integracoes_html,
-            galeria_html=galeria_html,
-            proximo_arquivo=prox['arquivo'],
-            proximo_nome=prox['nome'],
-        )
-
-        destino = os.path.join(pasta, p['arquivo'])
-        with io.open(destino, 'w', encoding='utf-8') as f:
-            f.write(html)
-        print(f"  {p['arquivo']}")
-
-    print(f"\n{len(PROJETOS)} paginas geradas em projetos/")
+    raiz = os.path.dirname(os.path.abspath(__file__))
+    total = 0
+    for idioma in IDIOMAS:
+        lista = projetos_do_idioma(idioma)
+        for i, p in enumerate(lista):
+            prox = lista[(i + 1) % len(lista)]
+            caminho = gerar_pagina(p, prox, idioma, raiz)
+            print(f'  {caminho}')
+            total += 1
+    print(f'\n{total} paginas geradas ({len(PROJETOS)} projetos x {len(IDIOMAS)} idiomas)')
 
 
 if __name__ == '__main__':

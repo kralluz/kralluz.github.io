@@ -1129,3 +1129,90 @@ a, button { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 330px) {
   .numeros { grid-template-columns: 1fr; }
 }
+
+
+/* =========================================================================
+   COMO EU TRABALHO — principios que se repetem entre projetos
+   ========================================================================= */
+.metodo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.principio {
+  position: relative;
+  padding: 28px 26px 24px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  transition: border-color .25s, transform .25s;
+}
+
+/* fio de luz no topo, cresce da esquerda ao passar o mouse */
+.principio::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--destaque), transparent);
+  transition: width .45s cubic-bezier(.22,.61,.36,1);
+}
+
+.principio:hover { border-color: var(--destaque-esc); transform: translateY(-3px); }
+.principio:hover::before { width: 100%; }
+
+.principio-num {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-family: var(--fonte-mono);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--borda);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.principio h3 {
+  margin: 0 0 12px;
+  padding-right: 46px;
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+.principio p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: var(--texto-fraco);
+  line-height: 1.62;
+}
+
+.principio strong { color: var(--texto); }
+
+/* onde o principio aparece de fato — a prova, em letra menor */
+.principio-onde {
+  margin: 0;
+  padding-top: 13px;
+  border-top: 1px solid var(--borda);
+  font-family: var(--fonte-mono);
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--texto-fraco);
+  opacity: .78;
+}
+
+#metodo { scroll-margin-top: 76px; }
+
+@media (max-width: 620px) {
+  .metodo { grid-template-columns: 1fr; gap: 14px; margin-top: 24px; }
+  .principio { padding: 22px 20px 20px; }
+  .principio:hover { transform: none; }
+  .principio h3 { font-size: 16.5px; padding-right: 40px; }
+  .principio p { font-size: 14.5px; }
+  .principio-num { font-size: 24px; top: 16px; right: 16px; }
+  .principio-onde { font-size: 11px; }
+}

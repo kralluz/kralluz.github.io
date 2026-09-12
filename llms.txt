@@ -1,0 +1,83 @@
+# Carlos Henrique — Desenvolvedor Full Stack
+
+> Desenvolvedor full stack e arquiteto de sistemas, no Brasil, disponivel para
+> trabalho remoto. Constroi e mantem seis produtos em producao: paineis de
+> indicadores de saude publica usados por prefeituras, plataforma de atendimento
+> ao cidadao vendida a municipios, sistemas de gestao financeira e um aplicativo
+> Android publicado na Google Play. TypeScript de ponta a ponta.
+
+Site: https://kralluz.github.io
+Versao em ingles: https://kralluz.github.io/en/
+GitHub: https://github.com/kralluz
+LinkedIn: https://www.linkedin.com/in/carlosklz/
+
+## Quem e
+
+- Nome: Carlos Henrique (kralluz)
+- Funcao: Desenvolvedor Full Stack e arquiteto de sistemas
+- Idiomas: portugues (nativo), ingles
+- Formacao: Kenzie Academy Brasil (Full Stack, 2023); bacharelado em Sistemas de
+  Informacao pelo Instituto Federal Goiano
+- Atua em todas as camadas: modelagem de banco, API, frontend, mobile e deploy
+
+## Stack principal
+
+TypeScript, JavaScript, React, React Native, Expo, Next.js, Vite, Ant Design,
+TailwindCSS, TanStack Query, Zustand, Node.js, NestJS, Express, Prisma,
+PostgreSQL, Docker, Vitest, Jest, Swagger/OpenAPI, OpenTelemetry, MinIO.
+
+## Projetos em producao
+
+- [Saude Brasil 360](https://kralluz.github.io/projetos/saude-brasil-360.html): sistema de gestao
+  para secretarias municipais de saude. Calcula os indicadores da Atencao
+  Primaria de que depende o repasse federal, a partir da base de e-SUS/PEC de
+  cada prefeitura, e emite os documentos oficiais de faturamento do SUS.
+  358 mil linhas, 598 endpoints, 92 tabelas, mais de 30 modulos.
+  Multi-tenant com uma conexao de banco por municipio.
+
+- [Atende Facil](https://kralluz.github.io/projetos/atende-facil.html): plataforma de atendimento
+  ao cidadao para prefeituras. Reune varios numeros de WhatsApp num painel,
+  chamado formal com protocolo e prazo, quadro Kanban e um robo de atendimento
+  montado em editor visual. 103 mil linhas, 293 endpoints, 66 tabelas, 25
+  modulos. Isolamento entre organizacoes garantido no banco por extensao do
+  Prisma e indices unicos parciais.
+
+- [Alcance](https://kralluz.github.io/projetos/alcance.html): gestao de contratos e comissionamento
+  para administradora de beneficios. Importa o faturamento de cada fornecedor
+  lendo Excel, CSV, PDF ou foto com OCR, aprende o layout por fornecedor e casa
+  cada linha com o contrato certo. 43,8 mil linhas, 91 endpoints, 26 tabelas.
+
+- [Distribuicao Financeira](https://kralluz.github.io/projetos/distribuicao-financeira.html):
+  aplicativo Android de organizacao financeira pessoal, publicado na Google Play.
+  Divide a renda do mes por categoria, controla dividas e fecha cada mes num
+  snapshot imutavel. Offline-first com padrao outbox e escrita idempotente.
+  51,7 mil linhas, 73 endpoints, 25 tabelas, 24 telas.
+  Loja: https://play.google.com/store/apps/details?id=com.distribuicao_financeira.app
+
+- [Eventa Pro](https://kralluz.github.io/projetos/eventa-pro.html): plataforma de inscricao em
+  corridas de rua. Lotes de preco por data, cupons, pagamento por PIX ou cartao,
+  ingresso com QR code para check-in, resultados e certificado em PDF, e controle
+  de repasse ao organizador. 47 mil linhas, 143 endpoints, 19 tabelas, 71 telas.
+
+- [CRM GetMoto](https://kralluz.github.io/projetos/crm-getmoto.html): gestao de oficina de motos em
+  operacao no Reino Unido. Ordem de servico, estoque, compras, despesas e folha
+  de pagamento convergindo para um livro-caixa unico. 50 mil linhas, 96
+  endpoints, 18 tabelas, 39 telas, interface em tres idiomas.
+
+## Como trabalha
+
+Quatro decisoes que se repetem em projetos independentes:
+
+1. Dinheiro nunca e numero quebrado. Valor monetario e inteiro (centavos, pence
+   em BigInt) e percentual e ponto-base, do schema ate a tela.
+2. O passado nao se reescreve. O resultado do periodo e congelado num snapshot
+   imutavel, e cancelar cria lancamento reverso em vez de apagar o original.
+3. O servidor nao confia no cliente. Totais sao recalculados no servidor na
+   gravacao, e o escopo de acesso vem do usuario autenticado, nunca da requisicao.
+4. A regra que nao pode falhar mora no banco. Sob concorrencia real a garantia e
+   transacao, indice unico parcial e trigger — nao checagem na aplicacao.
+
+## Contato
+
+Para propostas de projeto ou vaga, o caminho mais rapido e o LinkedIn:
+https://www.linkedin.com/in/carlosklz/
