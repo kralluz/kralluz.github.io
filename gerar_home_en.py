@@ -8,6 +8,11 @@ import io, os, re
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
+
+# o seletor de idioma troca de destino e de bandeira
+TROCA_PT = ('<a class="troca-idioma" href="en/" hreflang="en" title="Read in English" aria-label="Read in English"><svg class="bandeira" viewBox="0 0 30 20" aria-hidden="true"><use href="#f-en"/></svg>EN</a>')
+TROCA_EN = ('<a class="troca-idioma" href="../" hreflang="pt-BR" title="Ler em português" aria-label="Ler em português"><svg class="bandeira" viewBox="0 0 30 20" aria-hidden="true"><use href="#f-br"/></svg>PT</a>')
+
 # ---------------------------------------------------------------- caminhos
 CAMINHOS = [
     ('href="assets/',  'href="../assets/'),
@@ -15,7 +20,7 @@ CAMINHOS = [
     ('href="style.css"', 'href="../style.css"'),
     ('src="script.js"',  'src="../script.js"'),
     ('href="projetos/', 'href="projects/'),
-    ('href="en/" hreflang="en">EN</a>', 'href="../" hreflang="pt-BR">PT</a>'),
+    (TROCA_PT, TROCA_EN),
 ]
 
 # ---------------------------------------------------------------- textos

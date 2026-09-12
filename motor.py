@@ -39,6 +39,7 @@ IDIOMAS = {
         'sufixo_titulo': 'Carlos Henrique',
         'outro_idioma_url': '../en/projects/{arquivo}',
         'outro_idioma_rot': 'EN',
+        'outro_idioma_titulo': 'Read in English',
     },
     'en': {
         'lang':        'en',
@@ -63,6 +64,7 @@ IDIOMAS = {
         'sufixo_titulo': 'Carlos Henrique',
         'outro_idioma_url': '../../projetos/{arquivo}',
         'outro_idioma_rot': 'PT',
+        'outro_idioma_titulo': 'Ler em português',
     },
 }
 
@@ -72,6 +74,9 @@ MODELO = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<!-- a classe .js habilita a animacao de entrada; sem ela o conteudo
+     aparece direto, entao uma falha de script nunca deixa a pagina vazia -->
 <title>{titulo}</title>
 <meta name="description" content="{descricao}">
 <link rel="canonical" href="{canonico}">
@@ -114,6 +119,19 @@ MODELO = """<!doctype html>
   <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M5 12h14M13 6l6 6-6 6"/>
   </symbol>
+  <symbol id="f-br" viewBox="0 0 30 20">
+    <rect width="30" height="20" fill="#009b3a"/>
+    <path d="M15 2.6 27.4 10 15 17.4 2.6 10Z" fill="#fedf00"/>
+    <circle cx="15" cy="10" r="4.4" fill="#002776"/>
+    <path d="M10.9 11.4a5.2 5.2 0 0 1 8.2 0" fill="none" stroke="#fff" stroke-width="1.3"/>
+  </symbol>
+  <symbol id="f-en" viewBox="0 0 30 20">
+    <rect width="30" height="20" fill="#012169"/>
+    <path d="M0 0 30 20M30 0 0 20" stroke="#fff" stroke-width="4.4"/>
+    <path d="M0 0 30 20M30 0 0 20" stroke="#c8102e" stroke-width="2.2"/>
+    <path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.6"/>
+    <path d="M15 0v20M0 10h30" stroke="#c8102e" stroke-width="3.8"/>
+  </symbol>
 </svg>
 
 <div class="topo-fixo">
@@ -123,7 +141,8 @@ MODELO = """<!doctype html>
       {rot_voltar}
     </a>
     <span class="topo-acoes">
-      <a class="troca-idioma" href="{outro_idioma}" hreflang="{outro_lang}">{rot_outro_idioma}</a>
+      <a class="troca-idioma" href="{outro_idioma}" hreflang="{outro_lang}" title="{rot_titulo_idioma}" aria-label="{rot_titulo_idioma}">
+        <svg class="bandeira" viewBox="0 0 30 20" aria-hidden="true"><use href="#f-{bandeira}"/></svg>{rot_outro_idioma}</a>
       <a class="btn" href="{home}#contato">{rot_contato}</a>
     </span>
   </div>
@@ -378,6 +397,8 @@ def gerar_pagina(p, prox, idioma, raiz_fs):
         outro_idioma=cfg['outro_idioma_url'].format(arquivo=arquivo),
         outro_lang=IDIOMAS[outro]['lang'],
         rot_outro_idioma=cfg['outro_idioma_rot'],
+        rot_titulo_idioma=cfg['outro_idioma_titulo'],
+        bandeira='en' if idioma == 'pt' else 'br',
         rot_voltar=cfg['voltar'],
         rot_contato=cfg['contato'],
         rot_papel=cfg['papel'],

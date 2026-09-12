@@ -13,9 +13,17 @@
      --------------------------------------------------------------- */
   const nav        = document.getElementById('nav');
   const progresso  = document.getElementById('progresso');
-  const linksNav   = Array.from(document.querySelectorAll('.nav-links a'));
-  const secoes     = linksNav
-        .map(a => document.querySelector(a.getAttribute('href')))
+  // So os links de ancora da propria pagina entram no scroll-spy.
+  // O seletor precisa filtrar por href^="#": o link de troca de idioma mora
+  // na mesma lista e aponta para "en/", que nao e seletor CSS valido —
+  // passar isso para querySelector lanca SyntaxError e mata o script inteiro,
+  // deixando a pagina toda invisivel.
+  const linksNav = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const secoes   = linksNav
+        .map(a => {
+          try { return document.querySelector(a.getAttribute('href')); }
+          catch (e) { return null; }
+        })
         .filter(Boolean);
 
   function aoRolar() {
@@ -85,6 +93,28 @@
      Cada elemento com .revelar sobe e aparece ao entrar na tela.
      O atraso em cascata vem do data-atraso (em ms).
      --------------------------------------------------------------- */
+  // Rede de seguranca: se o observador nao disparar por qualquer motivo
+  // (container de rolagem inesperado, aba em segundo plano, browser antigo),
+  // o que ja esta na tela aparece mesmo assim. A pagina nunca fica em branco.
+  function revelarNaTela() {
+    document.querySelectorAll('.revelar:not(.visivel)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.94 && r.bottom > 0) {
+        el.classList.add('visivel');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revelarNaTela, { passive: true });
+  window.addEventListener('resize', revelarNaTela, { passive: true });
+  setTimeout(revelarNaTela, 400);
+
+  // ultimo recurso: passados 4 segundos, nada continua escondido
+  setTimeout(() => {
+    document.querySelectorAll('.revelar:not(.visivel)').forEach(
+      el => el.classList.add('visivel'));
+  }, 4000);
+
   const observadorRevelar = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
       if (!entrada.isIntersecting) return;

@@ -344,7 +344,9 @@ footer p { margin: 0; }
 
 /* --------------------- revelar na rolagem --------------------- */
 /* estado inicial: deslocado e invisível. O JS adiciona .visivel */
-.revelar {
+/* Só esconde quando o JS esta rodando (a classe .js entra no <html> por um
+   script inline no head). Sem JS, ou se o script quebrar, o conteudo aparece. */
+.js .revelar {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity .7s cubic-bezier(.22,.61,.36,1),
@@ -352,7 +354,7 @@ footer p { margin: 0; }
   will-change: opacity, transform;
 }
 
-.revelar.visivel {
+.js .revelar.visivel {
   opacity: 1;
   transform: none;
 }
@@ -994,7 +996,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body { overflow-x: hidden; }        /* nada empurra a pagina de lado */
+/* Nada empurra a pagina de lado.
+   ATENCAO: tem que ser `clip`, nao `hidden`. `overflow-x: hidden` forca o
+   overflow-y a virar `auto`, o body vira um container de rolagem e o
+   IntersectionObserver do script.js nunca mais dispara — a pagina inteira
+   fica invisivel. `clip` corta sem criar container. */
+html, body { overflow-x: clip; }
 
 /* nenhuma imagem estoura a largura da tela */
 img, svg { max-width: 100%; }
@@ -1215,4 +1222,22 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .principio p { font-size: 14.5px; }
   .principio-num { font-size: 24px; top: 16px; right: 16px; }
   .principio-onde { font-size: 11px; }
+}
+
+
+/* --------------------- seletor de idioma --------------------- */
+.troca-idioma {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.bandeira {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .14);
+  /* o simbolo ja corta no viewBox; isto evita serrilhado nas diagonais */
+  shape-rendering: geometricPrecision;
 }
