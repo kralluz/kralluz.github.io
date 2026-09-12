@@ -2,7 +2,32 @@
 # Rode de novo depois de editar qualquer texto aqui: python gerar_paginas.py
 # (as paginas sao sobrescritas, entao edite AQUI, nao no HTML gerado)
 
-import os, io
+import os, io, re
+
+
+def atributos_contador(valor):
+    """Separa o numero do que vem depois dele para o contador do JS.
+
+    "103 mil" -> conta 103, sufixo " mil"
+    "43,8 mil" -> conta 43,8 com uma casa decimal
+    "30+"      -> conta 30, sufixo "+"
+    "293"      -> conta 293
+    Se nao comecar com digito, devolve vazio e o texto fica estatico.
+    """
+    m = re.match(r'^(\d+(?:[.,]\d+)?)(.*)$', valor.strip())
+    if not m:
+        return ''
+    numero, resto = m.group(1), m.group(2)
+    decimais = 0
+    if ',' in numero or '.' in numero:
+        decimais = len(re.split(r'[.,]', numero)[1])
+    attr = f' data-contar="{numero.replace(",", ".")}"'
+    if decimais:
+        attr += f' data-decimais="{decimais}"'
+    if resto:
+        attr += f' data-sufixo="{resto}"'
+    return attr
+
 
 PROJETOS = [
     {
@@ -915,7 +940,7 @@ def gerar():
         if p.get('numeros'):
             cartoes = ''.join(f'''
         <div class="num-cartao">
-          <strong>{v}</strong>
+          <strong{atributos_contador(v)}>{v}</strong>
           <span>{rot}</span>
         </div>''' for v, rot in p['numeros'])
             numeros_html = f'''

@@ -979,3 +979,153 @@ ul.stack-icones li:hover img[src*="prisma"] {
    deixa quebrar em vez de espremer o titulo */
 .projeto-topo { flex-wrap: wrap; }
 .projeto-topo h3 { margin-right: auto; }
+
+
+/* =========================================================================
+   MOBILE — revisao completa
+   A versao anterior so encolhia o desktop. Aqui o celular ganha
+   proporcao, area de toque e ritmo proprios.
+   Ordem: base -> tablet (860) -> celular (620) -> celular pequeno (400)
+   ========================================================================= */
+
+/* ---------------------- base para toque ---------------------- */
+html {
+  -webkit-text-size-adjust: 100%;   /* iOS nao aumenta a fonte ao girar */
+  scroll-behavior: smooth;
+}
+
+body { overflow-x: hidden; }        /* nada empurra a pagina de lado */
+
+/* nenhuma imagem estoura a largura da tela */
+img, svg { max-width: 100%; }
+
+/* respeita o recorte da camera e a barra de gestos */
+.nav-interno { padding-left: max(24px, env(safe-area-inset-left));
+               padding-right: max(24px, env(safe-area-inset-right)); }
+
+/* toque nao pisca em cinza no Android */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+
+/* =========================== TABLET =========================== */
+@media (max-width: 860px) {
+
+  /* a nav vira uma barra mais compacta, com os links centralizados */
+  .nav-interno { padding-top: 10px; padding-bottom: 10px; }
+
+  /* respiro entre secoes proporcional a tela, nao fixo */
+  .secao { padding: clamp(52px, 9vw, 78px) 0; }
+
+  /* o titulo de secao ocupa menos espaco vertical */
+  .secao h2 { margin-bottom: 10px; }
+}
+
+
+/* =========================== CELULAR =========================== */
+@media (max-width: 620px) {
+
+  /* ---- tipografia: escala fluida em vez de saltos ---- */
+  .hero h1        { font-size: clamp(34px, 11vw, 46px); line-height: 1.05; }
+  .hero-cargo     { font-size: clamp(14px, 4vw, 16px); }
+  .hero-frase     { font-size: clamp(15px, 4.4vw, 18px); }
+  .secao h2       { font-size: clamp(23px, 6.6vw, 30px); }
+  .secao-sub      { font-size: 14.5px; }
+
+  /* ---- hero ---- */
+  .hero { padding: 104px 0 44px; }
+  .foto-moldura { width: 140px; height: 140px; }
+  .ponto-status { right: 6px; bottom: 6px; width: 13px; height: 13px; }
+
+  /* botoes lado a lado em duas colunas: alvo grande sem virar lista */
+  .hero-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  /* o primeiro botao (acao principal) ocupa a linha inteira */
+  .hero-acoes .btn-primario { grid-column: 1 / -1; }
+
+  .btn {
+    justify-content: center;
+    min-height: 46px;            /* area de toque confortavel */
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  /* ---- faixa de numeros ---- */
+  .numeros { gap: 1px; }
+  .numero strong { font-size: clamp(28px, 9vw, 38px); }
+  .numero span   { font-size: 11.5px; line-height: 1.35; }
+
+  /* ---- sobre ---- */
+  .sobre-grid { gap: 26px; }
+  .lista-marcada li { font-size: 14.5px; }
+
+  /* ---- cards de projeto ---- */
+  .projetos { gap: 14px; }
+  .projeto  { padding: 22px 20px; }
+  .projeto h3 { font-size: 19px; }
+  .projeto-num { font-size: 30px; top: 14px; right: 16px; opacity: .5; }
+  .projeto-problema, .projeto p { font-size: 14.5px; }
+  .mini-numeros { font-size: 12px; }
+
+  /* a lista de stack do card vira rolagem horizontal em vez de quebrar
+     em quatro linhas e esticar o card */
+  .projeto > ul.stack {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+  .projeto > ul.stack::-webkit-scrollbar { display: none; }
+  .projeto > ul.stack li { white-space: nowrap; flex-shrink: 0; }
+
+  /* ---- stack ---- */
+  ul.stack-icones { gap: 8px; }
+  ul.stack-icones li { padding: 8px 13px 8px 10px; font-size: 13px; gap: 8px; }
+  ul.stack-icones img { width: 22px; height: 22px; }
+  .stack-bloco h3 { font-size: 12px; }
+
+  /* ---- contato ---- */
+  #contato .hero-acoes { grid-template-columns: 1fr; }
+  #contato .btn { min-height: 50px; }
+}
+
+
+/* ====================== CELULAR PEQUENO ====================== */
+@media (max-width: 400px) {
+  .container { padding: 0 16px; }
+
+  .numero  { padding: 16px 10px; }
+  .numero strong { font-size: 30px; }
+
+  .hero-acoes { grid-template-columns: 1fr; }
+  .projeto-num { display: none; }   /* libera a largura do titulo */
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 12.5px; }
+}
+
+
+/* ---- telefone deitado: nao desperdicar altura ---- */
+@media (max-height: 460px) and (orientation: landscape) {
+  .hero { padding: 92px 0 36px; }
+  .foto-moldura { width: 120px; height: 120px; }
+  .secao { padding: 44px 0; }
+}
+
+/* alvo de toque dos links da nav: 32px era pequeno demais para o dedo */
+@media (max-width: 620px) {
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav-marca { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+
+/* so em tela muito estreita vale uma coluna de numero por linha */
+@media (max-width: 330px) {
+  .numeros { grid-template-columns: 1fr; }
+}

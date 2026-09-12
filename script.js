@@ -71,7 +71,11 @@
   if (semMovimento) {
     document.querySelectorAll('.revelar').forEach(el => el.classList.add('visivel'));
     document.querySelectorAll('[data-contar]').forEach(el => {
-      el.textContent = el.dataset.formato || el.dataset.contar;
+      const d = Number(el.dataset.decimais || 0);
+      const n = Number(el.dataset.contar).toLocaleString('pt-BR', {
+        minimumFractionDigits: d, maximumFractionDigits: d
+      });
+      el.textContent = n + (el.dataset.sufixo || '');
     });
     return;
   }
@@ -102,19 +106,30 @@
      Sobe de 0 até o valor, desacelerando no fim (easeOutExpo).
      --------------------------------------------------------------- */
   function animarNumero(el) {
-    const alvo = Number(el.dataset.contar);
-    const sufixo = el.dataset.sufixo || '';
-    const duracao = 1600;
-    const inicio = performance.now();
+    const alvo     = Number(el.dataset.contar);
+    const sufixo   = el.dataset.sufixo || '';
+    const decimais = Number(el.dataset.decimais || 0);
+    const duracao  = 1600;
+    const inicio   = performance.now();
 
-    // separador de milhar no padrão brasileiro
-    const formatar = (n) => n.toLocaleString('pt-BR');
+    // separador de milhar no padrão brasileiro, com casas decimais quando o
+    // valor pede (ex.: "43,8 mil" conta de 0,0 até 43,8)
+    const formatar = (n) => n.toLocaleString('pt-BR', {
+      minimumFractionDigits: decimais,
+      maximumFractionDigits: decimais
+    });
+
+    const arredondar = (n) => {
+      if (!decimais) return Math.round(n);
+      const f = Math.pow(10, decimais);
+      return Math.round(n * f) / f;
+    };
 
     function passo(agora) {
       const t = Math.min((agora - inicio) / duracao, 1);
       // easeOutExpo: rápido no começo, quase parado no fim
       const suave = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-      el.textContent = formatar(Math.round(alvo * suave)) + sufixo;
+      el.textContent = formatar(arredondar(alvo * suave)) + sufixo;
       if (t < 1) requestAnimationFrame(passo);
     }
 
@@ -130,7 +145,11 @@
   }, { threshold: 0.5 });
 
   document.querySelectorAll('[data-contar]').forEach(el => {
-    el.textContent = '0' + (el.dataset.sufixo || '');
+    const d = Number(el.dataset.decimais || 0);
+    const zero = (0).toLocaleString('pt-BR', {
+      minimumFractionDigits: d, maximumFractionDigits: d
+    });
+    el.textContent = zero + (el.dataset.sufixo || '');
     observadorNumero.observe(el);
   });
 
